@@ -7,7 +7,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "white",
-    "navigationBarTitleText": "优卡优惠活动",
+    "navigationBarTitleText": "bing_shop",
     "navigationBarTextStyle": "black"
   },
   "plugins": {
@@ -27,7 +27,7 @@
         "pagePath": "pages/home/index/index",
         "iconPath": "/images/category.png",
         "selectedIconPath": "/images/select-category.png",
-        "text": "优惠"
+        "text": "分类"
       },
       {
         "pagePath": "pages/cart/index/index",
