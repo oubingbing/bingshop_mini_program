@@ -1,0 +1,110 @@
+
+
+<view class="home-container">
+  <view class='container-content'>
+
+    <!--头部-->
+    <view class='content-header'>
+      <view class='header'>
+        <view class='header-item {{selectHeader==1?"select-header-color":""}}' 
+              data-type='1' 
+              bindtap='switchHeader'>今日可用</view>
+        <view class='header-item {{selectHeader==2?"select-header-color":""}}' 
+              data-type='2' 
+              bindtap='switchHeader'>最新预告</view>
+        <view class='header-item {{selectHeader==4?"select-header-color":""}}' 
+              data-type='4' 
+              bindtap='switchHeader'>分享广场</view>
+        <view class='header-item {{selectHeader==3?"select-header-color":""}}' 
+              data-type='3' 
+              bindtap='switchHeader'>筛选</view>
+      </view>
+    </view>
+
+    <!-- 卡券列表 -->
+    <view class='content' wx:if="{{selectHeader!=3}}">
+      <view class='coupon-item' 
+            wx:for="{{activityList}}" 
+            wx:key="{{index}}">
+        <view class='timestamp'>{{item.time=='00:00'?'全天':item.time}}</view>
+        <view class='coupon'
+              wx:for="{{item.data}}" 
+              wx:key="{{sub.id}}" 
+              bindtap='openDetail' 
+              data-obj_id='{{sub.id}}'
+              wx:for-item="sub">
+          <view class='coupon-content'>
+            <view class='logo'><image src='{{sub.banks[0].attachments[0]}}'></image></view>
+            <view class='coupon-info'>
+              <view class='coupon-title'>{{sub.title}}</view>
+              <view class='coupon-other'>
+                <view class='coupon-label' 
+                      wx:for="{{sub.categories}}" 
+                      wx:key="{{category}}" 
+                      wx:for-item="category">{{category.name}}</view>
+                <view class='coupon-number'>{{sub.limit_type==2?'无限量':sub.number}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+    <!-- 卡券列表结束 -->
+
+    <!-- 筛选列表 -->
+    <view class='select-container' wx:if="{{selectHeader==3}}">
+      <view class='select-content'>
+        <view class='select-header'>
+          <view class='select-left {{!showBank?"select-header-color":""}}' bindtap='switchBank'>优惠类型</view>
+          <view class='select-right {{showBank?"select-header-color":""}}' bindtap='switchBank'>银行选择</view>
+        </view>
+        <!-- 优惠类型 -->
+        <view class='select-info' wx:if='{{!showBank}}'>
+          <view class='select-list'>
+            <view class='list-item' wx:for="{{categories}}" wx:key="{{item.id}}">
+              <view class='item-content {{item.select?"be-select":""}}' 
+                    bindtap='selectCategoyrToFilter'
+                    data-obj_id='{{item.id}}'>{{item.name}}</view>
+            </view>
+          </view>
+        </view>
+        <!-- 银行 -->
+        <view class='select-info' wx:if='{{showBank}}'>
+          <view class='select-list'>
+            <view class='list-item' wx:for="{{banks}}" wx:key="{{item.id}}">
+              <view class='item-content {{item.select?"be-select":""}}' 
+                    bindtap='selectBankToFilter'
+                    data-obj_id='{{item.id}}'>{{item.name}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='submit-button' bindtap='serchActivity'>确定</view>
+    </view>
+
+  <!-- 授权按钮 -->
+  <view class='auth-container' wx:if="{{showAuth}}">
+    <view class='auth-wall'>
+      <view class='auth-tips'>
+        <image src='/images/wechat-logo.png'></image>
+        <view>授权您的公开信息(昵称和头像)</view>
+      </view>
+      <button open-type="getUserInfo" 
+              bindgetuserinfo="getAuthUserInfo" 
+              class='auth-button'>
+        <view>授权登录</view>
+      </button>
+    </view>
+  </view>
+
+  <!-- post按钮 -->
+  <view class='poster-container' bindtap='posterShare' hidden='{{selectHeader!=4}}'>
+    <image src='/images/post.png'></image>
+  </view>
+
+  <get-more-loading wx:if="{{showGeMoreLoadin}}"></get-more-loading>
+  <not-more wx:if="{{showNotMoreTip}}"></not-more>
+
+  </view>
+</view>

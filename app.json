@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/home/index/index",
+    "pages/home/coupon_detail/coupon_detail",
+    "pages/home/create_activity/create_activity",
+    "pages/strategy/index/index",
+    "pages/strategy/article/article",
+    "pages/personal/index/index",
+    "pages/personal/my_article/my_article",
+    "pages/personal/my_collection/my_collection",
+    "pages/personal/my_share/my_share"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "white",
+    "navigationBarTitleText": "优卡优惠活动",
+    "navigationBarTextStyle": "black"
+  },
+  "plugins": {
+    "uploadPlugins": {
+      "version": "1.3.0",
+      "provider": "wx00caa212d6710dcb"
+    }
+  },
+  "navigateToMiniProgramAppIdList":["wx20a414b6b2fa05f2"],
+  "tabBar": {
+    "color": "#515151",
+    "selectedColor": "#ED7843",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/index/index",
+        "iconPath": "/images/home.png",
+        "selectedIconPath": "/images/select-home.png",
+        "text": "优惠"
+      },
+      {
+        "pagePath": "pages/strategy/index/index",
+        "iconPath": "images/article.png",
+        "selectedIconPath": "images/select-article.png",
+        "text": "攻略"
+      },
+      {
+        "pagePath": "pages/personal/index/index",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/select-my.png",
+        "text": "我的"
+      }
+    ]
+  }
+}
