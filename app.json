@@ -1,14 +1,8 @@
 {
   "pages": [
     "pages/home/index/index",
-    "pages/home/coupon_detail/coupon_detail",
-    "pages/home/create_activity/create_activity",
-    "pages/strategy/index/index",
-    "pages/strategy/article/article",
-    "pages/personal/index/index",
-    "pages/personal/my_article/my_article",
-    "pages/personal/my_collection/my_collection",
-    "pages/personal/my_share/my_share"
+    "pages/cart/index/index",
+    "pages/personal/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -31,20 +25,20 @@
     "list": [
       {
         "pagePath": "pages/home/index/index",
-        "iconPath": "/images/home.png",
-        "selectedIconPath": "/images/select-home.png",
+        "iconPath": "/images/category.png",
+        "selectedIconPath": "/images/select-category.png",
         "text": "优惠"
       },
       {
-        "pagePath": "pages/strategy/index/index",
-        "iconPath": "images/article.png",
-        "selectedIconPath": "images/select-article.png",
-        "text": "攻略"
+        "pagePath": "pages/cart/index/index",
+        "iconPath": "images/cart.png",
+        "selectedIconPath": "images/select-cart.png",
+        "text": "购物车"
       },
       {
         "pagePath": "pages/personal/index/index",
-        "iconPath": "images/my.png",
-        "selectedIconPath": "images/select-my.png",
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/select-me.png",
         "text": "我的"
       }
     ]
