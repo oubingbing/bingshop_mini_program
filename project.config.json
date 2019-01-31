@@ -30,48 +30,18 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
-					"id": 0,
-					"name": "卡券详情",
-					"pathName": "pages/home/coupon_detail/coupon_detail",
-					"query": "id=32&user_id=1"
-				},
-				{
-					"id": -1,
-					"name": "攻略",
-					"pathName": "pages/strategy/index/index",
-					"query": ""
-				},
-				{
-					"id": -1,
+					"id": 2,
 					"name": "个人中心",
 					"pathName": "pages/personal/index/index",
 					"query": ""
 				},
 				{
 					"id": -1,
-					"name": "分享活动",
-					"pathName": "pages/home/create_activity/create_activity",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "我的发布",
-					"pathName": "pages/personal/my_article/my_article",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "我的收藏",
-					"pathName": "pages/personal/my_collection/my_collection",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "我的分享",
-					"pathName": "pages/personal/my_share/my_share",
+					"name": "购物车",
+					"pathName": "pages/cart/index/index",
 					"query": ""
 				}
 			]

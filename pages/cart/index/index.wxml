@@ -1,2 +1,118 @@
-<!--pages/cart/index/index.wxml-->
-<text>pages/cart/index/index.wxml</text>
+<view class="cart-container">
+  <view class='cart-content'>
+    <view class='cart-item'>
+
+      <view class='select-all'>
+        <view class='select-item'>
+          <view class='select-icon'>
+            <image src='/images/selected-goods.png'></image>
+          </view>
+          <view class='select-all-title'>全选</view>
+        </view>
+      </view>
+
+      <view class='item-body'>
+        <view class='item'>
+          <view class='select-icon'>
+            <image src='/images/selected-goods.png'></image>
+          </view>
+          <view class='goods-image'>
+            <image src='https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3229235142,2362498584&fm=27&gp=0.jpg'></image>
+          </view>
+          <view class='goods-info'>
+            <view class='title'>超甜的富士苹果10个</view>
+            <view class='sku-data'>一斤</view>
+            <view class='price'>￥12.00</view>
+          </view>
+          <view class='operate-button'>
+            <image src='/images/jian.png'></image>
+            <view class='goods-number'>2</view>
+            <image src='/images/jia.png'></image>
+          </view>
+        </view>
+      </view>
+
+      <view class='item-body'>
+        <view class='item'>
+          <view class='select-icon'>
+            <image src='/images/selected-goods.png'></image>
+          </view>
+          <view class='goods-image'>
+            <image src='https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3229235142,2362498584&fm=27&gp=0.jpg'></image>
+          </view>
+          <view class='goods-info'>
+            <view class='title'>超甜的富士苹果10个</view>
+            <view class='sku-data'>一斤</view>
+            <view class='price'>￥12.00</view>
+          </view>
+          <view class='operate-button'>
+            <image src='/images/jian.png'></image>
+            <view class='goods-number'>2</view>
+            <image src='/images/jia.png'></image>
+          </view>
+        </view>
+      </view>
+
+      <view class='item-body'>
+        <view class='item'>
+          <view class='select-icon'>
+            <image src='/images/selected-goods.png'></image>
+          </view>
+          <view class='goods-image'>
+            <image src='https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3229235142,2362498584&fm=27&gp=0.jpg'></image>
+          </view>
+          <view class='goods-info'>
+            <view class='title'>超甜的富士苹果10个</view>
+            <view class='sku-data'>一斤</view>
+            <view class='price'>￥12.00</view>
+          </view>
+          <view class='operate-button'>
+            <image src='/images/jian.png'></image>
+            <view class='goods-number'>2</view>
+            <image src='/images/jia.png'></image>
+          </view>
+        </view>
+      </view>
+
+      <view class='item-body'>
+        <view class='item'>
+          <view class='select-icon'>
+            <image src='/images/selected-goods.png'></image>
+          </view>
+          <view class='goods-image'>
+            <image src='https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3229235142,2362498584&fm=27&gp=0.jpg'></image>
+          </view>
+          <view class='goods-info'>
+            <view class='title'>超甜的富士苹果10个</view>
+            <view class='sku-data'>一斤</view>
+            <view class='price'>￥12.00</view>
+          </view>
+          <view class='operate-button'>
+            <image src='/images/jian.png'></image>
+            <view class='goods-number'>2</view>
+            <image src='/images/jia.png'></image>
+          </view>
+        </view>
+      </view>
+
+      <!-- 底部结算栏 -->
+      <view class='settle-container'>
+        <view class='settle-content'>
+          <view class='left'>
+            <image src='/images/selected-goods.png'></image>
+            <view>全选</view>
+          </view>
+          <view class='settle-info'>
+            <view class='settle'> 
+              <view class='up'>合计</view>
+              <view class='down'>￥12.9</view>
+            </view>
+            <view class='express'>配送费：00.00</view>
+          </view>
+          <view class='right'>去支付</view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>
