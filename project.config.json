@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": 2,
@@ -43,6 +43,11 @@
 					"name": "购物车",
 					"pathName": "pages/cart/index/index",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商品详情",
+					"pathName": "pages/home/goods_detail/goods_detail"
 				}
 			]
 		}
