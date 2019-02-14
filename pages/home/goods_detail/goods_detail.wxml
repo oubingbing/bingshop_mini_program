@@ -1,0 +1,50 @@
+<view class="detail-container">
+  <view class='container'>
+    <view class='header'>
+      <swiper indicator-dots="true" 
+              indicator-color="#ffffff" 
+              indicator-active-color="#66CDAA"
+              autoplay="true"
+              interval="3000"
+              circular="true"
+              duration="1000"
+              class='image-container'>
+          <block wx:for="{{imgUrls}}" wx:key="{{item}}">
+            <swiper-item class="image-item">
+              <image class='goods-image' src="{{item}}" mode='aspectFill' />
+            </swiper-item>
+          </block>
+      </swiper>
+    </view>
+    <view class='goods-info'>
+      <view class='goods-describe'>
+        <view class='title'>原生态小白菜</view>
+        <view class='describe'>无农药，原生态，山泉水浇灌</view>
+      </view>
+      <view class='price-info'>
+        <view class='price-left'>
+          <view class='sale-price'>￥1000</view>
+          <view class='price'>原价 ￥1200</view>
+        </view>
+        <view class='price-right'>
+          <view>库存：100</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='footer'>
+    <view class='footer-left'>
+      <view class='server'>
+        <image src='/images/service.png'></image>
+        <view>客服</view>
+      </view>
+      <view class='cart-icon'>
+        <image src='/images/detail-cart.png'></image>
+        <view>购物车</view>
+      </view>
+    </view>
+    <view class='cart'>加入购物车</view>
+  </view>
+
+</view>

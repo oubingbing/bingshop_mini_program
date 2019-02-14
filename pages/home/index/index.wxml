@@ -25,6 +25,7 @@
                      scroll-y>
           <view class='goods-item'
                 id="{{'v'+item.id}}" 
+                bindtap='openGoodsDetail'
                 wx:for="{{goods}}" 
                 wx:key="{{item.id}}">
             <view class='goods'>

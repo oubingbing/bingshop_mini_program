@@ -58,8 +58,8 @@ page{
 }
 
 .select-icon image{
-  width: 50rpx;
-  height: 50rpx;
+  width: 40rpx;
+  height: 40rpx;
 }
 
 .item .goods-info{
@@ -99,7 +99,7 @@ page{
 }
 
 .operate-button .goods-number{
-  padding: 0rpx 30rpx;
+  padding: 0rpx 40rpx;
   color: darkgray;
   font-size: 30rpx;
 }

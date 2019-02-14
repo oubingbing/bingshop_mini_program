@@ -57,7 +57,7 @@
   background: white;
     border-left-style:solid;
   border-width:8rpx;
-  border-color: #ED7843;
+  border-color: #008B8B;
 }
 
 .left-bar .select-item{

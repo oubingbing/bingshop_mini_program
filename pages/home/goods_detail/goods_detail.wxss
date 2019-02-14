@@ -1,1 +1,148 @@
-/* pages/home/goods_detail/goods_detail.wxss */
+page{
+  background: #F8F8F8;
+}
+
+.detail-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 450rpx;
+}
+
+.goods-image{
+  width: 100%;
+  height: 450rpx;
+}
+
+.image-item{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 450rpx;
+}
+
+.image-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 450rpx;
+}
+
+.goods-info{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+}
+
+.goods-info .goods-describe{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 0rpx;
+}
+
+.goods-info .describe{
+  font-size: 30rpx;
+  color: darkgray;
+}
+
+.price-info{
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx 0rpx;
+}
+
+.price-info .price-left{
+  width: 70%;
+}
+
+.price-info .price-right{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  color: darkgray;
+}
+
+.price-info .sale-price{
+  font-size: 30rpx;
+  color: red;
+}
+
+.price-info .price{
+  font-size: 25rpx;
+  color: darkgray;
+}
+
+.footer{
+  width: 100%;
+  height: 120rpx;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  z-index: 100;
+  bottom: 0rpx;
+}
+
+.footer .footer-left{
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.footer .server{
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+  align-items: center;
+  justify-content: center;
+}
+
+.server image{
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.footer .cart-icon{
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-icon image{
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.cart{
+  width: 60%;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  background: red;
+  color: white;
+}

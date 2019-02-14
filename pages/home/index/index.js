@@ -2,6 +2,8 @@ const http = require("./../../../utils/http.js");
 const app = getApp()
 
 let theCategories = [];
+theCategories.push({ id: 100, name: '新品' })
+theCategories.push({ id: 101, name: '热卖' })
 for(let i=1;i<=6;i++){
   theCategories.push({id:i,name:'手机'})
 }
@@ -26,17 +28,13 @@ Page({
     goods: theGoods,
     toView:"v1",
     toGoodsView:"v1",
-    selectCategory:1,
+    selectCategory:100,
     scrollWithAnimation:true
   },
 
   onLoad: function (e) {
 
-    console.log(this.data.categories)
 
-    //wx.showLoading({
-      //title: '加载中'
-    //});
   },
 
   onShow: function (option) {
@@ -122,5 +120,11 @@ Page({
       }
     }
   },
+
+  openGoodsDetail:function(e){
+    wx.navigateTo({
+      url: '/pages/home/goods_detail/goods_detail'
+    })
+  }
 
 })
