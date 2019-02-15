@@ -144,6 +144,7 @@
 
 .price .normal-price{
   font-size: 25rpx;
+  text-decoration:line-through;
 }
 
 .price .vip-price{

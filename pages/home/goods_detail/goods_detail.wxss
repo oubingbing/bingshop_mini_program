@@ -91,6 +91,7 @@ page{
 .price-info .price{
   font-size: 25rpx;
   color: darkgray;
+  text-decoration:line-through;
 }
 
 .footer{
@@ -145,4 +146,54 @@ page{
   justify-content: center;
   background: red;
   color: white;
+}
+
+.standard-select{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+  background: white;
+  padding: 25rpx 0rpx;
+  align-items: center;
+  justify-content: center;
+}
+
+.standard-select .standard{
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+}
+
+.standard-select .standard-select-title{
+  color: darkgray;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.standard-select .standard-content{
+  font-size: 35rpx;
+  margin-left: 20rpx;
+  color: darkgray;
+}
+
+.standard-left{
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+}
+
+.standard-right{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center
+}
+
+.standard-right image{
+  width: 30rpx;
+  height: 30rpx;
 }

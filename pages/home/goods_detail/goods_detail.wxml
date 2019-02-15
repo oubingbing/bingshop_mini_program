@@ -27,10 +27,24 @@
           <view class='price'>原价 ￥1200</view>
         </view>
         <view class='price-right'>
-          <view>库存：100</view>
+          <view>剩余：100</view>
         </view>
       </view>
     </view>
+
+    <!-- 选择商品规格 -->
+    <view class='standard-select'>
+      <view class='standard'>
+        <view class='standard-left'>
+          <view class='standard-select-title'>选择</view>
+          <view class='standard-content'>商品规格</view>
+        </view>
+        <view class='standard-right'>
+          <image src='/images/shenglue.png'></image>
+        </view>
+      </view>
+    </view>
+
   </view>
 
   <view class='footer'>
