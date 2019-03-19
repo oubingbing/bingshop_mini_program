@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/home/index/index",
-    "pages/home/goods_detail/goods_detail",
+    "pages/category/index/index",
+    "pages/category/goods_detail/goods_detail",
     "pages/cart/index/index",
     "pages/personal/index/index"
   ],
@@ -26,6 +27,12 @@
     "list": [
       {
         "pagePath": "pages/home/index/index",
+        "iconPath": "/images/home.png",
+        "selectedIconPath": "/images/select-home.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/category/index/index",
         "iconPath": "/images/category.png",
         "selectedIconPath": "/images/select-category.png",
         "text": "分类"

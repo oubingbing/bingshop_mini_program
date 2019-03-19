@@ -94,7 +94,6 @@ const getUserInfo = function (code, _method = null, _url = null, _data = null, c
               iv: res.iv
             }, function (res) {
               let resData = res.data;
-              console.log("登录失败原因")
               console.log(resData)
               if (resData.code == 0) {
                 wx.setStorageSync('token', resData.data);
