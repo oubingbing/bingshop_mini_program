@@ -28,6 +28,7 @@
           <view class='goods-item'
                 id="{{'v'+item.id}}" 
                 bindtap='openGoodsDetail'
+                data-id='{{item.id}}'
                 wx:for="{{goods}}" 
                 wx:key="{{item.id}}">
             <view class='goods'>

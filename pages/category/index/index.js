@@ -116,8 +116,9 @@ Page({
    * 查看商品详情
    */
   openGoodsDetail:function(e){
+    let id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/home/goods_detail/goods_detail'
+      url: '/pages/category/goods_detail/goods_detail?id='+id
     })
   }
 

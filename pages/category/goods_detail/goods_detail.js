@@ -1,6 +1,7 @@
+const http = require("./../../../utils/http.js");
+const app = getApp()
 
 Page({
-
   data: {
     imgUrls: [
       'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1550048428582&di=1e0de423d2df501d4166790c9339cb92&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Ff7246b600c338744dd981da85c0fd9f9d62aa080.jpg',
@@ -10,18 +11,33 @@ Page({
     indicatorDots: false,
     autoplay: false,
     interval: 5000,
-    duration: 1000
+    duration: 1000,
+    goodsId:'',
+    goods:''
   },
 
   onLoad: function (options) {
-
+    console.log(options.id)
+    this.setData({
+      goodsId:options.id
+    })
+    this.goodsDetail();
   },
 
-  onReady: function () {
+  goodsDetail:function(){
+    http.get(`/goods/${this.data.goodsId}`, {}, res => {
+      let resData = res.data;
+      console.log(resData);
+      if (resData.code != 0) {
+        wx.showToast({
+          title: '系统繁忙~_~',
+          icon: 'none'
+        })
+      }
 
-  },
-
-  onShow: function () {
-
+      this.setData({
+        goods: resData.data
+      })
+    });
   }
 })

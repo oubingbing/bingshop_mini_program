@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 2,
 			"list": [
 				{
 					"id": 2,
@@ -45,15 +45,16 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 2,
 					"name": "商品详情",
-					"pathName": "pages/home/goods_detail/goods_detail",
-					"query": ""
+					"pathName": "pages/category/goods_detail/goods_detail",
+					"query": "id=90"
 				},
 				{
 					"id": -1,
 					"name": "分类",
-					"pathName": "pages/category/index/index"
+					"pathName": "pages/category/index/index",
+					"query": ""
 				}
 			]
 		}
