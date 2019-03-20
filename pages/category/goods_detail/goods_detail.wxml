@@ -33,11 +33,11 @@
     </view>
 
     <!-- 选择商品规格 -->
-    <view class='standard-select'>
+    <view class='standard-select' bindtap='selectSku'>
       <view class='standard'>
         <view class='standard-left'>
           <view class='standard-select-title'>选择</view>
-          <view class='standard-content'>商品规格</view>
+          <view class='standard-content-world'>商品规格</view>
         </view>
         <view class='standard-right'>
           <image src='/images/shenglue.png'></image>
@@ -62,9 +62,10 @@
   </view>
 
   <!-- 选择sku页面 -->
-  <view class='sku-container'>
-    <view class='sku-content'>
+  <view class='sku-container' wx:if="{{showSkuContainer}}">
+    <view class='sku-content' wx:if="{{showSku}}" animation='{{animationData}}'>
       <view class='sku-header'>
+        <view class="colse" bindtap='closeSku'><image src='/images/close.png'></image></view>
         <view class='sku-header-left'>
           <image src='{{goods.images_attachments[0]}}'></image>
         </view>
@@ -109,7 +110,6 @@
         </view>
 
       </view>
-
     </view>
 
     <view class='add-car-button'>加入购物车</view>

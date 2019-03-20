@@ -26,6 +26,10 @@ page{
   height: 450rpx;
 }
 
+.standard-content-world{
+  margin-left: 20rpx;
+}
+
 .image-item{
   width: 100%;
   display: flex;
@@ -389,6 +393,18 @@ page{
 }
 
 .add-icon image{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.colse{
+  position: absolute;
+  z-index: 130;
+  top: 40rpx;
+  right: 0rpx;
+}
+
+.colse image{
   width: 40rpx;
   height: 40rpx;
 }
