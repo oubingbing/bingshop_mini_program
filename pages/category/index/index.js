@@ -1,17 +1,6 @@
 const http = require("./../../../utils/http.js");
 const app = getApp()
 
-let theGoods = [];
-for (let i = 1; i <= 6; i++) {
-  theGoods.push({
-     id: i, 
-     name: '原生态大白菜', 
-     'remark':'非常甜，多汁',
-     'normal_price':100,
-     'vip_price':80,
-    'attachments': ['https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=909144937,3981150873&fm=200&gp=0.jpg'] })
-}
-
 Page({
   data: {
     pageSize: 10,
