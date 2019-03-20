@@ -44,16 +44,7 @@ Page({
 
     //获取分类商品
     http.get(`/category/${id}/goods`, {}, res => {
-
       let resData = res.data;
-      console.log(resData);
-      if (resData.code != 0) {
-        wx.showToast({
-          title: '系统繁忙~_~',
-          icon: 'none'
-        })
-      }
-
       this.setData({
         goods: resData.data
       })
@@ -69,16 +60,7 @@ Page({
       this.setData({
         showGeMoreLoadin: false
       })
-
       let resData = res.data;
-      console.log(resData);
-      if(resData.code != 0){
-        wx.showToast({
-          title: '系统繁忙~_~',
-          icon:'none'
-        })
-      }
-
       let categoryList = this.data.categories;
       resData.data.categories.map((item,index)=>{
         if(index == 0){

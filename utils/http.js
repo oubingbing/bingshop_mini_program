@@ -51,9 +51,18 @@ const httpRequest=function (_method, _url, _data, callback) {
     success: function (res) {
 
       if (res.data.code == '4001' || res.data.code == '4000') {
-        console.log('token过期了');
+        console.log('token过期');
         login(_method, _url, _data, callback);
       } else {
+
+        let resData = res.data;
+        if (resData.code != 0) {
+          wx.showToast({
+            title: '系统繁忙~_~',
+            icon: 'none'
+          })
+        }
+
         callback(res);
       }
     },

@@ -9,7 +9,7 @@
               circular="true"
               duration="1000"
               class='image-container'>
-          <block wx:for="{{imgUrls}}" wx:key="{{item}}">
+          <block wx:for="{{goods.images_attachments}}" wx:key="{{item}}">
             <swiper-item class="image-item">
               <image class='goods-image' src="{{item}}" mode='aspectFill' />
             </swiper-item>
@@ -18,8 +18,8 @@
     </view>
     <view class='goods-info'>
       <view class='goods-describe'>
-        <view class='title'>原生态小白菜</view>
-        <view class='describe'>无农药，原生态，山泉水浇灌</view>
+        <view class='title'>{{goods.name}}</view>
+        <view class='describe'>{{goods.describe}}</view>
       </view>
       <view class='price-info'>
         <view class='price-left'>
@@ -59,6 +59,61 @@
       </view>
     </view>
     <view class='cart'>加入购物车</view>
+  </view>
+
+  <!-- 选择sku页面 -->
+  <view class='sku-container'>
+    <view class='sku-content'>
+      <view class='sku-header'>
+        <view class='sku-header-left'>
+          <image src='{{goods.images_attachments[0]}}'></image>
+        </view>
+        <view class='sku-header-right'>
+          <view class='sku-right-content'>
+            <view class='price'>￥1999</view>
+            <view class='standard-values'>
+              <view class='standard-values-item'>红色</view>
+              <view class='standard-values-item'>32G</view>
+              <view class='standard-values-item'>双核</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class='standard-content'>
+        <view class='standard-content-item'>
+          <view class='title'>颜色</view>
+          <view class='standard-values-item'>
+            <view class='value-item-select'>红色</view>
+            <view class='value-item'>黑色</view>
+            <view class='value-item'>白色</view>
+          </view>
+        </view>
+
+        <view class='standard-content-item'>
+          <view class='title'>内存</view>
+          <view class='standard-values-item'>
+            <view class='value-item'>32G</view>
+            <view class='value-item-select'>64G</view>
+            <view class='value-item'>128G</view>
+          </view>
+        </view>
+
+        <view class='standard-car-button'>
+          <view class='standard-car-left'>购买数量</view>
+          <view class='add-icon'>
+            <image class='add-icon-item jian-icon' src='/images/jian.png'></image>
+            <view class='add-icon-item purchase-num'>2</view>
+            <image class='add-icon-item jia-icon' src='/images/jia.png'></image>
+          </view>
+        </view>
+
+      </view>
+
+    </view>
+
+    <view class='add-car-button'>加入购物车</view>
+
   </view>
 
 </view>
