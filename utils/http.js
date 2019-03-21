@@ -58,7 +58,7 @@ const httpRequest=function (_method, _url, _data, callback) {
         let resData = res.data;
         if (resData.code != 0) {
           wx.showToast({
-            title: '系统繁忙~_~',
+            title: resData.message,
             icon: 'none'
           })
         }

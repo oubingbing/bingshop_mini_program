@@ -33,10 +33,10 @@
     </view>
 
     <!-- 选择商品规格 -->
-    <view class='standard-select' bindtap='selectSku'>
+    <view class='standard-select' bindtap='selectSku' wx:if="{{goods.sku_type==1}}">
       <view class='standard'>
         <view class='standard-left'>
-          <view class='standard-select-title'>选择</view>
+          <view class='standard-select-title'>已选</view>
           <view class='standard-content-world'>
             <view class='standard-content-world-item' wx:for="{{skuNames}}" wx:key="{{item}}">{{item}}</view>
           </view>
@@ -60,7 +60,7 @@
         <view>购物车</view>
       </view>
     </view>
-    <view class='cart'>加入购物车</view>
+    <view class='cart' bindtap='firstAddCard'>加入购物车</view>
   </view>
 
   <!-- 选择sku页面 -->

@@ -15,7 +15,8 @@ Page({
     animationData: {},
     selecedtSku:'',
     skuNames:[],
-    standardValueIds:[]
+    standardValueIds:[],
+    purchaseNum:1
   },
 
   onLoad: function (options) {
@@ -141,7 +142,7 @@ Page({
     // 创建一个动画实例
     var animation = wx.createAnimation({
       // 动画持续时间
-      duration: 400,
+      duration: 300,
       // 定义动画效果，当前是匀速
       timingFunction: 'linear'
     })
@@ -195,10 +196,40 @@ Page({
     },220)
   },
 
+  firstAddCard:function(){
+    if(this.data.goods.sku_type == 1){
+      //打开规格页面
+      this.selectSku();
+    }else{
+      //加入后台购物车
+      this.postToCart();
+    }
+  },
+
   /**
    * 加入购物车
    */
   addCar:function(){
     this.closeSku();
-  }
+    //加入后台购物车
+    this.postToCart();
+  },
+
+  /**
+   * 提交数据到后台
+   */
+  postToCart:function(){
+    http.post(`/cart`, {
+      sku_id: this.data.selecedtSku.id,
+      purchase_num:this.data.purchaseNum
+    }, res => {
+      let resData = res.data;
+      if(resData.code == 0){
+        wx.showToast({
+          title: resData.data.message,
+          icon:'none'
+        })
+      }
+    })
+  },
 })
