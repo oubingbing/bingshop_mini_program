@@ -1,66 +1,93 @@
-// pages/cart/index/index.js
+const http = require("./../../../utils/http.js");
+const app = getApp()
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    carts:[],
+    selectAll:true
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中'
+    })
 
+    this.getCarts();
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 获取购物车商品
    */
-  onReady: function () {
-
+  getCarts:function(){
+    http.get(`/carts`, {}, res => {
+      wx.hideLoading();
+      let resData = res.data;
+      if(resData.code == 0){
+        let cartData = resData.data;
+        cartData.map(item=>{
+          item.select = true;
+          return item;
+        })
+        this.setData({
+          carts:cartData
+        })
+      }
+      
+    })
   },
 
   /**
-   * 生命周期函数--监听页面显示
+   * 勾选商品
    */
-  onShow: function () {
+  selectGoods:function(e){
+    let cartId = e.currentTarget.dataset.id;
+    let carts = this.data.carts;
+    let selectAll = true;
+    let cartData = carts.map(item=>{
+      if (cartId == item.sku_id){
+        if (item.select == true) {
+          item.select = false;
+        }else{
+          item.select = true;
+        }
+      }
+      return item;
+    });
 
+    this.setData({ carts: cartData})
   },
 
   /**
-   * 生命周期函数--监听页面隐藏
+   * 将商品移出购物车
    */
-  onHide: function () {
+  removeCart(e){
+    let skuId = e.currentTarget.dataset.id;
+    wx.showModal({
+      content: '确认将该商品移出购物车?',
+      success: res => {
+        if (res.confirm) {
+          http.del(`/cart/${skuId}/delete`, {}, res => {
+              let resData = res.data;
+              if(resData.code == 0){
+                let carts = this.data.carts;
+                carts = carts.filter(item=>{
+                  if(item.sku_id != skuId){
+                    return item;
+                  }
+                })
+                this.setData({carts:carts})
+              }
+          });
 
+        }
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  openDetail:function(e){
+    let id = e.currentTarget.dataset.goods_id;
+    wx.navigateTo({
+      url: '/pages/category/goods_detail/goods_detail?id=' + id
+    })
   }
 })

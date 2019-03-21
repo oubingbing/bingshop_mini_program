@@ -97,7 +97,7 @@ page{
 
 .price-info .sale-price{
   font-size: 30rpx;
-  color: red;
+  color: #FF6347;
 }
 
 .price-info .price{
@@ -157,7 +157,7 @@ page{
   flex-direction:column;
   align-items: center;
   justify-content: center;
-  background: red;
+  background: #FF6347;
   color: white;
 }
 

@@ -57,7 +57,7 @@
   background: white;
     border-left-style:solid;
   border-width:8rpx;
-  border-color: #008B8B;
+  border-color: #FF6347;
 }
 
 .left-bar .select-item{
@@ -149,7 +149,7 @@
 
 .price .normal-price{
   font-size: 28rpx;
-  color: #d4237a;
+  color: #FF6347;
 }
 
 .price-info .cart{
@@ -161,6 +161,6 @@
 }
 
 .cart image{
-  width: 70rpx;
-  height: 70rpx;
+  width: 50rpx;
+  height: 50rpx;
 }
