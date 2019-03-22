@@ -33,7 +33,9 @@
                 wx:key="{{item.id}}">
             <view class='goods'>
             <view class='goods-left'>
-              <image mode='aspectFill' wx:if="{{item.images_attachments.length>0}}" src='{{item.images_attachments[0]}}'></image>
+              <image mode='aspectFill' 
+                     wx:if="{{item.images_attachments.length>0}}" 
+                     src='{{item.images_attachments[0]}}'></image>
               <image mode='aspectFill' src='/images/not-image.png' wx:else></image>
             </view>
             <view class='goods-right'>

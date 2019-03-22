@@ -15,6 +15,10 @@ Page({
     this.getCarts();
   },
 
+  onShow:function(){
+    this.getCarts();
+  },
+
   /**
    * 获取购物车商品
    */

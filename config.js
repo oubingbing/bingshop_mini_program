@@ -4,13 +4,13 @@ const config={
     qiniuDomain:"http://file.crowntime.cn",
   },
   prod:{//生产环境
-    domain: "https://youhui.ykplans.com/api/wechat",
+    domain: "https://bingshop.qiuhuiyi.cn/api/wechat",
     qiniuDomain: "http://file.crowntime.cn"
   }
 }
 
-//const domain = config.prod.domain;
-const domain = config.dev.domain;
+const domain = config.prod.domain;
+//const domain = config.dev.domain;
 
 const qiniuDomain = config.prod.qiniuDomain;
 
