@@ -7,6 +7,7 @@ App({
     this.globalData.apiUrl = config.domain;
     this.globalData.imageUrl = config.qiniuDomain;
     this.globalData.needToReloadShareActivity = false;
+    this.globalData.flushCart = false;
 
     let token = wx.getStorageSync('token');
     console.log('token=' + token);
@@ -15,11 +16,18 @@ App({
     }
   },
 
+  /**
+   * 刷新纪录新增购物车的状态
+   */
+  flushCartStatus:function(){
+    this.globalData.flushCart = this.globalData.flushCart==true?false:true;
+  },
 
   globalData: {
     appId:null,
     userInfo: null,
     apiUrl: null,
-    needToReloadShareActivity:false
+    needToReloadShareActivity:false,
+    flushCart:false
   }
 })

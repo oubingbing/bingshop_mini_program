@@ -225,6 +225,7 @@ Page({
     }, res => {
       let resData = res.data;
       if(resData.code == 0){
+        app.flushCartStatus();
         wx.showToast({
           title: resData.data.message,
           icon:'none'

@@ -5,16 +5,19 @@
       <view class='item-body' 
             wx:for="{{carts}}" 
             wx:key="{{item.id}}" 
-            catchlongtap='removeCart' 
-            catchtap='openDetail'
-            data-goods_id='{{item.sku.goods_id}}'
+            bindlongpress='removeCart' 
             data-id='{{item.sku_id}}'>
-        <view class='item'>
-          <view class='select-icon' catchtap='selectGoods' data-id='{{item.sku_id}}'>
+        <view class='item' 
+              data-goods_id='{{item.sku.goods_id}}' 
+              bindtap='openDetail'>
+          <view class='select-icon' 
+                catchtap='selectGoods' 
+                data-id='{{item.sku_id}}'>
             <image src="{{item.select==true?'/images/select-circle.png':'/images/select-goods.png'}}"></image>
           </view>
           <view class='goods-image'>
-            <image src="{{item.sku.goods.images_attachments.length>0?item.sku.goods.images_attachments[0]:'/images/not-image.png'}}"></image>
+            <image mode='aspectFill' 
+                   src="{{item.sku.goods.images_attachments.length>0?item.sku.goods.images_attachments[0]:'/images/not-image.png'}}"></image>
           </view>
           <view class='goods-info'>
             <view class='title'>{{item.sku.goods.name}}</view>

@@ -16,7 +16,10 @@ Page({
   },
 
   onShow:function(){
-    this.getCarts();
+    if (app.globalData.flushCart==true){
+      this.getCarts();
+      app.flushCartStatus();
+    }
   },
 
   /**
