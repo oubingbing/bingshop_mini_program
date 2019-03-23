@@ -233,4 +233,13 @@ Page({
       }
     })
   },
+
+  /**
+   * 跳往购物车页面
+   */
+  toCart:function(){
+    wx.switchTab({
+      url: '/pages/cart/index/index'
+    })
+  }
 })

@@ -1,0 +1,9 @@
+<view class='confirm-container'>
+  <view class='submit-container'>
+    <view class='submit-left'>
+      <view>合计:</view>
+      <view class='total-amount'>￥100</view>
+    </view>
+    <view class='submit-right' bindtap='submitOrder'>提交订单</view>
+  </view>
+</view>

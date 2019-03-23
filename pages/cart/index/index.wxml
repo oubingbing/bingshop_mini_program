@@ -46,11 +46,11 @@
           <view class='settle-info'>
             <view class='settle'> 
               <view class='up'>合计</view>
-              <view class='down'>￥12.9</view>
+              <view class='down'>￥{{amount}}</view>
             </view>
             <view class='express'>配送费：00.00</view>
           </view>
-          <view class='right'>去支付</view>
+          <view class='right' bindtap='toPay'>去支付</view>
         </view>
       </view>
 

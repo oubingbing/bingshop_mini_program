@@ -4,6 +4,7 @@
     "pages/category/index/index",
     "pages/category/goods_detail/goods_detail",
     "pages/cart/index/index",
+    "pages/cart/confirmation_order/confirmation_order",
     "pages/personal/index/index"
   ],
   "window": {
