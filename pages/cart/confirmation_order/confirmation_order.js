@@ -37,7 +37,7 @@ Page({
     let skuData = [];
 
     this.data.sku.map(item => {
-      skuData.push({ id: item.sku_id, purchase_num: item.purchase_num })
+      skuData.push({ sku_id: item.sku_id, purchase_num: item.purchase_num })
     })
 
     if (skuData.length <= 0) {
@@ -55,9 +55,31 @@ Page({
       wx.hideLoading();
       let resData = res.data;
       if (resData.code == 0) {
-
+        this.payment(resData.data)
       }
 
     })
+  },
+  payment:function(data){
+    wx.requestPayment(
+      {
+        'timeStamp': data.timeStamp,
+        'nonceStr': data.nonceStr,
+        'package': data.package,
+        'signType': data.signType,
+        'paySign': data.paySign,
+        'success': function (res) {
+          console.log("s");
+          console.log(res);
+        },
+        'fail': function (res) {
+          console.log("f");
+          console.log(res);
+        },
+        'complete': function (res) {
+          console.log("c");
+          console.log(res);
+        }
+      })
   }
 })
