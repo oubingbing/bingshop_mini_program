@@ -1,4 +1,5 @@
 const http = require("./../../../utils/http.js");
+const cart = require("./../../../utils/cart.js");
 const app = getApp()
 
 Page({
@@ -18,6 +19,7 @@ Page({
 
   onShow:function(){
     if (app.globalData.flushCart==true){
+      cart.setCartBadge();
       this.getCarts();
       app.flushCartStatus();
     }
@@ -85,6 +87,7 @@ Page({
               let resData = res.data;
               let amount = 0;
               if(resData.code == 0){
+                cart.setCartBadge();
                 let carts = this.data.carts;
                 carts = carts.filter(item=>{
                   if(item.sku_id != skuId){

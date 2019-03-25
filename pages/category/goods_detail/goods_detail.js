@@ -30,11 +30,15 @@ Page({
   },
 
   onReady:function(){
-    cart.getCartNun(res=>{
+    this.flushCartNum();
+  },
+
+  flushCartNum:function(){
+    cart.getCartNun(res => {
       let resData = res.data;
       if (resData.code == 0) {
         let num = resData.data;
-        this.setData({ cartNum:num})
+        this.setData({ cartNum: num })
       }
     });
   },
@@ -236,6 +240,7 @@ Page({
       let resData = res.data;
       if(resData.code == 0){
         app.flushCartStatus();
+        this.flushCartNum();
         wx.showToast({
           title: resData.data.message,
           icon:'none'

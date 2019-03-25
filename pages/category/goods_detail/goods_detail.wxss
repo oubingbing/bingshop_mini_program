@@ -151,7 +151,7 @@ page{
   position: absolute;
   z-index: 100;
   color: white;
-  background: red;
+  background: #FF6347;
   top: 0rpx;
   right: 0rpx;
   width: 40rpx;
