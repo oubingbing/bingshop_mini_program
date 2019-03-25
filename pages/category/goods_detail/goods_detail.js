@@ -52,9 +52,7 @@ Page({
         })
         return item;
       })     
-
-      console.log(skuNames) 
-
+      
       this.setData({
         goods: goods,
         standards: standards,
