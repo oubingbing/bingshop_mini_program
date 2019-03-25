@@ -1,4 +1,5 @@
 const http = require("./../../../utils/http.js");
+const cart = require("./../../../utils/cart.js");
 const app = getApp();
 
 const images = [
@@ -35,6 +36,10 @@ Page({
         }
       }
     })
+  },
+
+  onReady(){
+    cart.setCartBadge();
   },
 
   /**

@@ -57,6 +57,7 @@
       </view>
       <view class='cart-icon' bindtap='toCart'>
         <image src='/images/detail-cart.png'></image>
+        <view class='red-point' wx:if="{{cartNum>0}}">{{cartNum}}</view>
         <view>购物车</view>
       </view>
     </view>

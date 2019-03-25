@@ -1,4 +1,5 @@
 const http = require("./../../../utils/http.js");
+const cart = require("./../../../utils/cart.js");
 const app = getApp()
 
 Page({
@@ -16,7 +17,8 @@ Page({
     selecedtSku:'',
     skuNames:[],
     standardValueIds:[],
-    purchaseNum:1
+    purchaseNum:1,
+    cartNum:0
   },
 
   onLoad: function (options) {
@@ -25,6 +27,16 @@ Page({
       goodsId:options.id
     })
     this.goodsDetail();
+  },
+
+  onReady:function(){
+    cart.getCartNun(res=>{
+      let resData = res.data;
+      if (resData.code == 0) {
+        let num = resData.data;
+        this.setData({ cartNum:num})
+      }
+    });
   },
 
   /**
