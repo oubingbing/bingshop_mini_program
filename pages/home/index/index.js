@@ -1,10 +1,55 @@
 const http = require("./../../../utils/http.js");
-const app = getApp()
+const app = getApp();
+
+const images = [
+  "http://article.qiuhuiyi.cn/hui_yi_15532398760009200",
+  "http://article.qiuhuiyi.cn/hui_yi_15532398790002956"
+]
+
+const goods = [
+  { 
+    attachments: ["http://article.qiuhuiyi.cn/hui_yi_15532398010009612"],
+    name:'小米9',
+    describe:'小米旗舰机',
+    price:99,
+    chalk_line_price:100
+  },
+  {
+    attachments: ["http://article.qiuhuiyi.cn/hui_yi_15532398790002956"],
+    name: '小米9',
+    describe: '小米旗舰机',
+    price: 99,
+    chalk_line_price: 100
+  },
+  {
+    attachments: ["http://article.qiuhuiyi.cn/hui_yi_15532398760009200"],
+    name: '小米9',
+    describe: '小米旗舰机',
+    price: 99,
+    chalk_line_price: 100
+  },
+  {
+    attachments: ["http://article.qiuhuiyi.cn/hui_yi_15532398790002956"],
+    name: '小米9',
+    describe: '小米旗舰机',
+    price: 99,
+    chalk_line_price: 100
+  },
+  {
+    attachments: ["http://article.qiuhuiyi.cn/hui_yi_15532398760009200"],
+    name: '小米9',
+    describe: '小米旗舰机',
+    price: 99,
+    chalk_line_price: 100
+  },
+];
 
 Page({
 
   data: {
     showAuth: false,
+    attachments: images,
+    goodsList: goods
   },
 
   onLoad: function (options) {
@@ -27,6 +72,13 @@ Page({
   },
 
   onShow: function () {
+
+  },
+
+  /**
+   * 搜索商品
+   */
+  search:function(){
 
   },
 
