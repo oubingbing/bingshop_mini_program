@@ -8,6 +8,7 @@ App({
     this.globalData.imageUrl = config.qiniuDomain;
     this.globalData.needToReloadShareActivity = false;
     this.globalData.flushCart = false;
+    //FF6347
 
     let token = wx.getStorageSync('token');
     console.log('token=' + token);
