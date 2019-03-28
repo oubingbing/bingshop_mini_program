@@ -316,6 +316,9 @@ page{
   z-index: 100;
   bottom: 0rpx;
   background: white;
+  border-top-style:solid;
+  border-width:1rpx;
+  border-color: #F2F2F2;
 }
 
 .submit-container .submit-left{
