@@ -49,6 +49,7 @@
 
   </view>
 
+  <!-- 底部固定栏 -->
   <view class='footer'>
     <view class='footer-left'>
       <view class='server'>
@@ -82,6 +83,7 @@
         </view>
       </view>
 
+      <!-- 规格数据 -->
       <view class='standard-content'>
         <view class='standard-content-item' wx:for="{{standards}}" wx:key="{{item.id}}">
           <view class='title'>{{item.name}}</view>
@@ -96,12 +98,19 @@
           </view>
         </view>
 
+        <!-- 数量加减器 -->
         <view class='standard-car-button'>
           <view class='standard-car-left'>购买数量</view>
           <view class='add-icon'>
-            <image class='add-icon-item jian-icon' src='/images/jian.png'></image>
-            <view class='add-icon-item purchase-num'>2</view>
-            <image class='add-icon-item jia-icon' src='/images/jia.png'></image>
+            <image class='add-icon-item jian-icon'
+                   bindtap='updatePurchase'
+                   data-type='0' 
+                   src='/images/jian.png'></image>
+            <view class='add-icon-item purchase-num'>{{purchaseNum}}</view>
+            <image class='add-icon-item jia-icon' 
+                   bindtap='updatePurchase'
+                   data-type='1'
+                   src='/images/jia.png'></image>
           </view>
         </view>
 

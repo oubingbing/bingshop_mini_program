@@ -49,7 +49,7 @@ Page({
       this.setData({
         showGeMoreLoadin: false
       })
-      let resData = res.data;
+      let resData      = res.data;
       let categoryList = this.data.categories;
       resData.data.categories.map((item,index)=>{
         if(index == 0){

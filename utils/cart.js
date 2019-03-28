@@ -21,10 +21,50 @@ const setCartBadge = function (timestamp) {
   })
 }
 
+/**
+ * 获取购物车商品数量
+ */
 const getCartNun = function(call){
   http.get(`/cart/num`, {}, res => {
     call(res);
   });
 }
 
-module.exports = { setCartBadge, getCartNun}
+/**
+ * 加入购物车
+ */
+const submitCart = function (skuId, num, shopTip=true,call){
+  http.post(`/cart`, {
+    sku_id: skuId,
+    purchase_num: num
+  }, res => {
+    let resData = res.data;
+    if (resData.code == 0) {
+      call(resData)
+    }
+    if (resData.data){
+      if (shopTip) {
+        wx.showToast({
+          title: resData.data.message,
+          icon: 'none'
+        })
+      }
+    }
+
+  })
+}
+
+/**
+ * 删除用户购物车中的商品
+ */
+const deleteUserSku = function (skuId,showTip,call){
+  http.del(`/cart/${skuId}/delete`, {}, res => {
+    let resData = res.data;
+    let amount = 0;
+    if (resData.code == 0) {
+      call(res)
+    }
+  });
+}
+
+module.exports = { setCartBadge, getCartNun, submitCart, deleteUserSku}

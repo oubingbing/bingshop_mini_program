@@ -98,7 +98,7 @@ Page({
  */
   checkoutAuth: function () {
     let theUrl = '/pages/home/coupon_detail/coupon_detail?id=' + this.data.detailId + '&user_id=' +            this.data.userId;
-    let that = this;
+    let that   = this;
     wx.getSetting({
       success: res => {
         if (!res.authSetting['scope.userInfo']) {
