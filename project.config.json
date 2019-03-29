@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 6,
 			"list": [
 				{
 					"id": 2,
@@ -69,6 +69,13 @@
 					"name": "商品支付",
 					"pathName": "pages/cart/confirmation_order/confirmation_order",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/order/detail/detail",
+					"query": "id=14",
 					"scene": null
 				}
 			]

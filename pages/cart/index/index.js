@@ -63,11 +63,37 @@ Page({
           item.select = true;
         }
       }
+
+      if(item.select == false){
+        selectAll = false;
+      }
+
       return item;
     });
 
-    this.setData({ carts: cartData});
+    this.setData({ carts: cartData, selectAll: selectAll});
     this.flushAmount();
+  },
+
+  /**
+   * 勾选所有商品
+   */
+  selectAllGoods:function(){
+    let carts = this.data.carts;
+    let selectAll = this.data.selectAll;
+    let cartData = carts.map(item => {
+      if(selectAll==true){
+        item.select = false;
+      }else{
+        item.select = true;
+      }
+      return item;
+    });
+
+    this.setData({
+      carts: cartData,
+      selectAll: selectAll==true?false:true
+    })
   },
 
   /**
@@ -180,6 +206,9 @@ Page({
     this.setData({carts:carts});
   },
 
+  /**
+   * 保存购物车数量
+   */
   submitCartNum:function(skuId,purchaseNum){
     cart.submitCart(skuId,purchaseNum,false, res => {
       app.flushCartStatus();

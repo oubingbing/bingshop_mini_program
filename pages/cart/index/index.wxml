@@ -46,7 +46,7 @@
       <!-- 底部结算栏 -->
       <view class='settle-container'>
         <view class='settle-content'>
-          <view class='left'>
+          <view class='left' bindtap='selectAllGoods'>
             <image src="{{selectAll==true?'/images/selected-goods.png':'/images/select-goods.png'}}"></image>
             <view>全选</view>
           </view>
