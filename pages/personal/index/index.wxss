@@ -20,7 +20,7 @@ page{
   display: flex;
   flex-direction: column;
   background: #528B8B;
-  height: 250rpx;
+  height: 200rpx;
   align-items: center;
 }
 
@@ -60,7 +60,7 @@ page{
 }
 
 .gap{
-  height: 50rpx;
+  height: 70rpx;
   width: 100%;
   background: #528B8B;
 }
@@ -108,16 +108,33 @@ page{
   justify-content: space-between;
 }
 
-.order-item .image{
-  width: 30rpx;
-  height: 30rpx;
-}
-
 .order-content .order-item{
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 27rpx;
+  position: relative;
+}
+
+.order-item image{
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.order-item .circle{
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  width: 40rpx;
+  height: 40rpx;
+  right: -10rpx;
+  top: -10rpx;
+  border-radius: 20rpx;
+  align-items: center;
+  justify-content: center;
+  background:red;
+  color: white;
 }
 
 .all-order .turn-right-icon{

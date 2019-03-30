@@ -6,6 +6,7 @@
     "pages/cart/index/index",
     "pages/cart/confirmation_order/confirmation_order",
     "pages/personal/index/index",
+    "pages/order/index/index",
     "pages/order/detail/detail"
   ],
   "window": {

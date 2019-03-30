@@ -1,0 +1,115 @@
+<view class="order-container">
+  <view class='order-content'>
+  
+    <!-- 头部 -->
+    <view class='content-header'>
+      <view class='header'>
+        <view class="{{select==1?'select-header-item':'header-item'}}" 
+              bindtap='selectTab' 
+              data-select='1'>全部</view>
+        <view class="{{select==2?'select-header-item':'header-item'}}" 
+              bindtap='selectTab' 
+              data-select='2'>待付款</view> 
+        <view class="{{select==3?'select-header-item':'header-item'}}" 
+              bindtap='selectTab' 
+              data-select='3'>待发货</view>
+        <view class="{{select==4?'select-header-item':'header-item'}}" 
+              bindtap='selectTab' 
+              data-select='4'>配送中</view>
+        <view class="{{select==5?'select-header-item':'header-item'}}" 
+              bindtap='selectTab' 
+              data-select='5'>退款中</view>
+        <view class="{{select==6?'select-header-item':'header-item'}}" 
+              bindtap='selectTab' 
+              data-select='6'>已完成</view>
+      </view>
+    </view>
+
+    <view class='order-body'>
+      <view class='order-item'>
+        <view class='order'>
+          <view class='order-header'>
+            <view>订单编号：1234567889888888</view>
+            <view class='status'>待发货</view>
+          </view>
+          
+          <view class='goods-container'>
+            <view class='goods-content'>
+              <view class='goods-item' 
+                    wx:for="{{sku}}" 
+                    wx:key="{{item.sku_id}}">
+                <view class='goods-left'>
+                  <image mode='aspectFill' 
+                        src="{{item.sku.goods.images_attachments.length>0?item.sku.goods.images_attachments[0]:'/images/not-image.png'}}"></image>
+                </view>
+                <view class='goods-middle'>
+                    <view class='title'>{{item.sku.goods.name}}</view>
+                    <view class='sku-data' wx:if="{{item.sku.standard_values.length>0}}">
+                      <view wx:for="{{item.sku.standard_values}}"  
+                            wx:for-item="sub" 
+                            wx:key="{{sub.id}}">{{sub.value}}</view>
+                    </view>
+                    <view class='price'>￥{{item.sku.price}}</view>
+                </view>
+                <view class='goods-right'>
+                  <view>x{{item.purchase_num}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='total-amount'>
+            <view>合计：</view>
+            <view class='amount-content'>￥90</view>
+          </view>
+          <view class='order-footer'>
+            <view class='footer-item'>提醒发货</view>
+            <view class='footer-item'>再来一单</view>
+          </view>
+        </view>
+      </view>
+
+      <view class='order-item'>
+        <view class='order'>
+          <view class='order-header'>
+            <view>订单编号：1234567889888888</view>
+            <view class='status'>待发货</view>
+          </view>
+          
+          <view class='goods-container'>
+            <view class='goods-content'>
+              <view class='goods-item' 
+                    wx:for="{{sku}}" 
+                    wx:key="{{item.sku_id}}">
+                <view class='goods-left'>
+                  <image mode='aspectFill' 
+                        src="{{item.sku.goods.images_attachments.length>0?item.sku.goods.images_attachments[0]:'/images/not-image.png'}}"></image>
+                </view>
+                <view class='goods-middle'>
+                    <view class='title'>{{item.sku.goods.name}}</view>
+                    <view class='sku-data' wx:if="{{item.sku.standard_values.length>0}}">
+                      <view wx:for="{{item.sku.standard_values}}"  
+                            wx:for-item="sub" 
+                            wx:key="{{sub.id}}">{{sub.value}}</view>
+                    </view>
+                    <view class='price'>￥{{item.sku.price}}</view>
+                </view>
+                <view class='goods-right'>
+                  <view>x{{item.purchase_num}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='total-amount'>
+            <view>合计：</view>
+            <view class='amount-content'>￥90</view>
+          </view>
+          <view class='order-footer'>
+            <view class='footer-item'>提醒发货</view>
+            <view class='footer-item'>再来一单</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>
