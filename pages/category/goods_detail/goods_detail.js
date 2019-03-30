@@ -1,4 +1,5 @@
 const http = require("./../../../utils/http.js");
+const cart = require("./../../../utils/cart.js");
 const app = getApp()
 
 Page({
@@ -16,7 +17,8 @@ Page({
     selecedtSku:'',
     skuNames:[],
     standardValueIds:[],
-    purchaseNum:1
+    purchaseNum:1,
+    cartNum:0
   },
 
   onLoad: function (options) {
@@ -27,16 +29,33 @@ Page({
     this.goodsDetail();
   },
 
+  onReady:function(){
+    this.flushCartNum();
+  },
+
+  /**
+   * 更新购物车数量
+   */
+  flushCartNum:function(){
+    cart.getCartNun(res => {
+      let resData = res.data;
+      if (resData.code == 0) {
+        let num = resData.data;
+        this.setData({ cartNum: num })
+      }
+    });
+  },
+
   /**
    * 获取商品详情
    */
   goodsDetail:function(){
     http.get(`/goods/${this.data.goodsId}`, {}, res => {
-      let resData = res.data;
-      let goods = resData.data.goods;
-      let standards = resData.data.standards;
-      let firstSku = goods.sku[0];
-      let skuNames = this.data.skuNames;
+      let resData          = res.data;
+      let goods            = resData.data.goods;
+      let standards        = resData.data.standards;
+      let firstSku         = goods.sku[0];
+      let skuNames         = this.data.skuNames;
       let standardValueIds = this.data.standardValueIds;
       firstSku.sku_standard_map.map(item=>{
         standards.map(standard=>{
@@ -52,9 +71,7 @@ Page({
         })
         return item;
       })     
-
-      console.log(skuNames) 
-
+      
       this.setData({
         goods: goods,
         standards: standards,
@@ -69,10 +86,10 @@ Page({
    * 切换sku
    */
   switchSku:function(e){
-    let standardId = e.currentTarget.dataset.standard_id;
-    let valueId = e.currentTarget.dataset.value_id;
+    let standardId       = e.currentTarget.dataset.standard_id;
+    let valueId          = e.currentTarget.dataset.value_id;
     let standardValueIds = this.data.standardValueIds;
-    let valueIds = [];
+    let valueIds         = [];
 
     //standardValueIds记录了{ standard_id: standard.id, standard_value_id: valueItem.id }这样的一个数据结构
     //然后需要切换sku的时候，把其中的切换的替换掉就可以了，下面做的就是这个工作
@@ -170,7 +187,7 @@ Page({
    * 关闭sku选择面板
    */
   closeSku: function (e) {
-    var that = this;
+    var that      = this;
     var animation = wx.createAnimation({
       duration: 1000,
       timingFunction: 'linear'
@@ -196,6 +213,9 @@ Page({
     },220)
   },
 
+  /**
+   * 加入购物车
+   */
   firstAddCard:function(){
     if(this.data.goods.sku_type == 1){
       //打开规格页面
@@ -219,18 +239,9 @@ Page({
    * 提交数据到后台
    */
   postToCart:function(){
-    http.post(`/cart`, {
-      sku_id: this.data.selecedtSku.id,
-      purchase_num:this.data.purchaseNum
-    }, res => {
-      let resData = res.data;
-      if(resData.code == 0){
-        app.flushCartStatus();
-        wx.showToast({
-          title: resData.data.message,
-          icon:'none'
-        })
-      }
+    cart.submitCart(this.data.selecedtSku.id, this.data.purchaseNum,true,res=>{
+      app.flushCartStatus();
+      this.flushCartNum();
     })
   },
 
@@ -241,5 +252,33 @@ Page({
     wx.switchTab({
       url: '/pages/cart/index/index'
     })
+  },
+
+  /**
+   * 更新购买数量
+   */
+  updatePurchase:function(e){
+    let type        = e.currentTarget.dataset.type;
+    let purchaseNum = this.data.purchaseNum;
+    let limitNum    = this.data.goods.limit_purchase_num;
+    if(type == 0){
+      if(purchaseNum<=1){
+        return false;
+      }
+      this.setData({
+        purchaseNum: purchaseNum - 1
+      })
+    }else{
+      if (this.data.goods.limit_purchase_num > 0 && purchaseNum >= limitNum){
+        wx.showToast({
+          title: '限购数量：' + limitNum,
+          icon: "none"
+        })
+        return false;
+      }
+      this.setData({
+        purchaseNum: purchaseNum + 1
+      })
+    }
   }
 })

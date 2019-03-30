@@ -151,6 +151,7 @@
   font-size: 25rpx;
   text-decoration:line-through;
   margin-top: 10rpx;
+  color: darkgray;
 }
 
 .price .normal-price{

@@ -7,7 +7,7 @@ Page({
   onLoad: function (options) {
     wx.setNavigationBarColor({
       frontColor: '#ffffff',
-      backgroundColor: '#008B8B'
+      backgroundColor: '#528B8B'
     })
   },
 

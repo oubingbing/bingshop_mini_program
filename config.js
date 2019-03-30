@@ -9,7 +9,7 @@ const config={
   }
 }
 
-const domain = config.prod.domain;
+//const domain = config.prod.domain;
 const domain = config.dev.domain;
 
 //const qiniuDomain = config.prod.qiniuDomain;

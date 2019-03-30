@@ -144,6 +144,22 @@ page{
   font-size: 30rpx;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.cart-icon .red-point{
+  position: absolute;
+  z-index: 100;
+  color: white;
+  background: #FF6347;
+  top: 0rpx;
+  right: 0rpx;
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .cart-icon image{

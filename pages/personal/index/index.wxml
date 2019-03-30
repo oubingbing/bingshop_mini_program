@@ -53,7 +53,7 @@
         <view class='service-item'>
           <view class='item-icon'>
             <image class='service-icon' src='/images/comment.png'></image>
-            <view class='service-title'>我的评价</view>
+            <view class='service-title'>优惠券</view>
           </view>
           <view class='direct'>
             <image class='direct-icon' src='/images/turn-right.png'></image>

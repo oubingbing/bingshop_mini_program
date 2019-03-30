@@ -2,6 +2,7 @@
   <view class='cart-content'>
     <view class='cart-item'>
 
+      <!-- 购物车商品 -->
       <view class='item-body' 
             wx:for="{{carts}}" 
             wx:key="{{item.id}}" 
@@ -29,9 +30,15 @@
             <view class='price'>￥{{item.sku.price}}</view>
           </view>
           <view class='operate-button'>
-            <image src='/images/jian.png'></image>
+            <image src='/images/jian.png' 
+                   catchtap='updatePurchase'
+                   data-sku_id='{{item.sku_id}}'
+                   data-type='0'></image>
             <view class='goods-number'>{{item.purchase_num}}</view>
-            <image src='/images/jia.png'></image>
+            <image src='/images/jia.png' 
+                   catchtap='updatePurchase' 
+                   data-sku_id='{{item.sku_id}}'
+                   data-type='1'></image>
           </view>
         </view>
       </view>
@@ -39,7 +46,7 @@
       <!-- 底部结算栏 -->
       <view class='settle-container'>
         <view class='settle-content'>
-          <view class='left'>
+          <view class='left' bindtap='selectAllGoods'>
             <image src="{{selectAll==true?'/images/selected-goods.png':'/images/select-goods.png'}}"></image>
             <view>全选</view>
           </view>

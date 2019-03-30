@@ -1,4 +1,32 @@
 <view class='confirm-container'>
+
+  <view class='order-status'>
+    <view class='status-content'>
+      <view class='status-left'>
+        <image src='/images/wait-send.png'></image>
+      </view>
+      <view class='status-rignt'>
+        <view class='status-info'>待发货</view>
+        <view class='status-decribe'>等待商家发货</view>
+      </view>
+    </view>
+    <view class='expres-content'>
+      <view class='expres-info'>
+        <view class='expres-up'>
+          <view class='company-name'>物流公司：</view>
+          <view>顺丰速递</view>
+        </view>
+        <view class='expres-down'>
+          <view class='company-name'>物流单号：</view>
+          <view>1234567893333</view>
+        </view>
+      </view>
+      <view class='express-detail'>
+        <image src='/images/right.png'></image>
+      </view>
+    </view>
+  </view>
+
   <!-- 收货地址 -->
   <view class='address-container'>
     <view class='address-content'>
@@ -90,15 +118,6 @@
       </view>
     </view>
 
-  </view>
-
-  <!-- 结算按钮 -->
-  <view class='submit-container'>
-    <view class='submit-left'>
-      <view>合计:</view>
-      <view class='total-amount'>￥{{amount}}</view>
-    </view>
-    <view class='submit-right' bindtap='submitOrder'>提交订单</view>
   </view>
 
 </view>

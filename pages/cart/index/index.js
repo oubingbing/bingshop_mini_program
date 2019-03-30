@@ -1,4 +1,6 @@
 const http = require("./../../../utils/http.js");
+const cart = require("./../../../utils/cart.js");
+const util = require("./../../../utils/util.js");
 const app = getApp()
 
 Page({
@@ -14,10 +16,12 @@ Page({
     })
 
     this.getCarts();
+    app.flushCartStatus();
   },
 
   onShow:function(){
     if (app.globalData.flushCart==true){
+      cart.setCartBadge();
       this.getCarts();
       app.flushCartStatus();
     }
@@ -32,16 +36,13 @@ Page({
       let resData = res.data;
       if(resData.code == 0){
         let cartData = resData.data;
-        let amount = this.data.amount;
         cartData.map(item=>{
           item.select = true;
-          amount += parseFloat(item.sku.price);
+          item.sku.price = util.floar(item.sku.price);
           return item;
         })
-        this.setData({
-          carts:cartData,
-          amount:amount
-        })
+        this.setData({carts:cartData});
+        this.flushAmount();
       }
       
     })
@@ -51,10 +52,9 @@ Page({
    * 勾选商品
    */
   selectGoods:function(e){
-    let cartId = e.currentTarget.dataset.id;
-    let carts = this.data.carts;
+    let cartId    = e.currentTarget.dataset.id;
+    let carts     = this.data.carts;
     let selectAll = true;
-    let amount = 0;
     let cartData = carts.map(item=>{
       if (cartId == item.sku_id){
         if (item.select == true) {
@@ -63,13 +63,37 @@ Page({
           item.select = true;
         }
       }
-      if (item.select == true){
-        amount += parseFloat(item.sku.price);
+
+      if(item.select == false){
+        selectAll = false;
+      }
+
+      return item;
+    });
+
+    this.setData({ carts: cartData, selectAll: selectAll});
+    this.flushAmount();
+  },
+
+  /**
+   * 勾选所有商品
+   */
+  selectAllGoods:function(){
+    let carts = this.data.carts;
+    let selectAll = this.data.selectAll;
+    let cartData = carts.map(item => {
+      if(selectAll==true){
+        item.select = false;
+      }else{
+        item.select = true;
       }
       return item;
     });
 
-    this.setData({ carts: cartData, amount: amount})
+    this.setData({
+      carts: cartData,
+      selectAll: selectAll==true?false:true
+    })
   },
 
   /**
@@ -81,22 +105,20 @@ Page({
       content: '确认将该商品移出购物车?',
       success: res => {
         if (res.confirm) {
-          http.del(`/cart/${skuId}/delete`, {}, res => {
-              let resData = res.data;
-              let amount = 0;
-              if(resData.code == 0){
-                let carts = this.data.carts;
-                carts = carts.filter(item=>{
-                  if(item.sku_id != skuId){
-                    amount += parseFloat(item.sku.price);
-                    return item;
-                  }
-                })
-                
-                this.setData({ carts: carts, amount: amount})
-              }
+          cart.deleteUserSku(skuId,true,res=>{
+            let resData = res.data;
+            if (resData.code == 0) {
+              cart.setCartBadge();
+              let carts = this.data.carts;
+              carts = carts.filter(item => {
+                if (item.sku_id != skuId) {
+                  return item;
+                }
+              })
+              this.setData({ carts: carts })
+              this.flushAmount();
+            }
           });
-
         }
       }
     })
@@ -137,5 +159,92 @@ Page({
     wx.navigateTo({
       url: '/pages/cart/confirmation_order/confirmation_order'
     })
+  },
+
+  /**
+   * 更新购买数量
+   */
+  updatePurchase: function (e) {
+    let type        = e.currentTarget.dataset.type;
+    let skuId = e.currentTarget.dataset.sku_id;
+    let purchaseNum = 0;
+    let limitNum    = 0;
+
+    this.data.carts.map(item=>{
+      if(item.sku_id == skuId){
+        purchaseNum = item.purchase_num;
+        limitNum = item.sku.goods.limit_purchase_num
+      }
+      return item;
+    });
+
+    if (type == 0) {
+      if (purchaseNum <= 1) {
+        return false;
+      }
+      purchaseNum --;
+      this.reduceCart(skuId);
+    } else {
+      if (limitNum > 0 && purchaseNum >= limitNum) {
+        wx.showToast({
+          title:'限购数量：'+limitNum,
+          icon:"none"
+        })
+        return false;
+      }
+      purchaseNum ++;
+      this.submitCartNum(skuId,1);
+    }
+
+    let carts = this.data.carts.map(item => {
+      if (item.sku_id == skuId) {
+        item.purchase_num = purchaseNum;
+      }
+      return item;
+    });
+
+    this.setData({carts:carts});
+  },
+
+  /**
+   * 保存购物车数量
+   */
+  submitCartNum:function(skuId,purchaseNum){
+    cart.submitCart(skuId,purchaseNum,false, res => {
+      app.flushCartStatus();
+      this.flushAmount();
+    })
+  },
+
+  /**
+   * 计算合计金额
+   */
+  flushAmount:function(){
+    let amount = 0;
+    let carts = this.data.carts;
+    carts.map(item => {
+      if (item.select == true) {
+        amount += parseFloat(item.sku.price * item.purchase_num);
+      }
+    })
+
+    this.setData({ amount: util.floar(amount) })
+  },
+
+  /**
+   * 购物车数量减一
+   */
+  reduceCart:function(skuId){
+    http.put(`/cart/${skuId}/reduce`, {}, res => {
+      let resData = res.data;
+      if(resData.code == 0){
+        this.flushAmount();
+      }else{
+        wx.showToast({
+          title: resData.message,
+          icon:'none'
+        })
+      }
+    });
   }
 })
