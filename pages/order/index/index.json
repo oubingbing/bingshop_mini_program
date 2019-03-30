@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "我的订单"
+  "navigationBarTitleText": "我的订单",
+  "usingComponents": {
+    "get-more-loading": "/components/get-more-loading/get-more-loading",
+    "not-more": "/components/not-more-tip/not-more-tip"
+  }
 }

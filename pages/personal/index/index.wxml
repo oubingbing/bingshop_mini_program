@@ -17,36 +17,36 @@
 
     <view class='content-body'>
       <view class='gap'></view>
-      <view class='order-info' catchtap='openOrder' data-type='0'>
+      <view class='order-info'>
         <view class='info-header'>
           <view>我的订单</view>
-          <view class='all-order'>
+          <view class='all-order' catchtap='openOrder' data-type='0'>
             <view>全部订单</view>
             <image class='turn-right-icon' src='/images/turn-right.png'></image>
           </view>
         </view>
         <view class='order-content'>
-          <view class='order-item wait-pay'>
+          <view class='order-item wait-pay' catchtap='openOrder' data-type='1'>
             <image class='order-icon' src='/images/wait-pay.png'></image>
             <view class='circle' wx:if="{{waitPay>0}}">{{waitPay}}</view>
             <view>待付款</view>
           </view>
-          <view class='wait-pay order-item'>
+          <view class='wait-pay order-item' catchtap='openOrder' data-type='2'>
             <image class='order-icon' src='/images/wait-send.png'></image>
             <view class='circle' wx:if="{{waitDispatch>0}}">{{waitDispatch}}</view>
             <view>待发货</view>
           </view>
-          <view class='wait-pay order-item'>
+          <view class='wait-pay order-item' catchtap='openOrder' data-type='5'>
             <image class='order-icon' src='/images/send.png'></image>
             <view class='circle' wx:if="{{dispatching>0}}">{{dispatching}}</view>
             <view>配送中</view>
           </view>
-          <view class='wait-pay order-item'>
+          <view class='wait-pay order-item' catchtap='openOrder' data-type='6'>
             <image class='order-icon' src='/images/tuikuang.png'></image>
             <view class='circle' wx:if="{{refunding>0}}">{{refunding}}</view>
             <view>退款中</view>
           </view>
-          <view class='wait-pay order-item'>
+          <view class='wait-pay order-item' catchtap='openOrder' data-type='7'>
             <image class='order-icon' src='/images/finish.png'></image>
             <view class='circle' wx:if="{{finish>0}}">{{finish}}</view>
             <view>已完成</view>

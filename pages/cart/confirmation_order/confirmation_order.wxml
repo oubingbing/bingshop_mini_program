@@ -14,6 +14,9 @@
           广东省深圳南山区南头街道丁头村大板桥巷129号402室
         </view>
       </view>
+      <view class='address-right'>
+          <image src='/images/right.png'></image>
+      </view>
     </view>
 
     <view class='boder-style'></view>

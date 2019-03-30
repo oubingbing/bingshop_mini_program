@@ -25,6 +25,9 @@ Page({
     this.getOrderStatus();
   },
 
+  /**
+   * 获取用户订单统计数据
+   */
   getOrderStatus:function(){
     http.get(`/order/status`, {}, res => {
       let resData = res.data;
@@ -82,7 +85,7 @@ Page({
   openOrder: function (e) {
     let type = e.currentTarget.dataset.type;
     wx.navigateTo({
-      url: '/pages/order/index/index?type=' + type
+      url: '/pages/order/index/index?select_type=' + type
     })
   }
 })
