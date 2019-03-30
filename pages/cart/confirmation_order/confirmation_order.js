@@ -37,7 +37,7 @@ Page({
     let skuData = [];
 
     this.data.sku.map(item => {
-      skuData.push({ id: item.sku_id, purchase_num: item.purchase_num })
+      skuData.push({ sku_id: item.sku_id, purchase_num: item.purchase_num })
     })
 
     if (skuData.length <= 0) {

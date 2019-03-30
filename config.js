@@ -9,10 +9,10 @@ const config={
   }
 }
 
-//const domain = config.prod.domain;
+const domain = config.prod.domain;
 const domain = config.dev.domain;
 
-const qiniuDomain = config.prod.qiniuDomain;
+//const qiniuDomain = config.prod.qiniuDomain;
 
 module.exports = {
   domain, qiniuDomain
