@@ -27,6 +27,7 @@ Page({
     }
   },
 
+
   /**
    * 获取购物车商品
    */
@@ -34,14 +35,23 @@ Page({
     http.get(`/carts`, {}, res => {
       wx.hideLoading();
       let resData = res.data;
+      let selectAll = this.data.selectAll;
       if(resData.code == 0){
         let cartData = resData.data;
         cartData.map(item=>{
           item.select = true;
           item.sku.price = util.floar(item.sku.price);
+
+          if(item.select == false){
+            selectAll = false;
+          }
+
           return item;
         })
-        this.setData({carts:cartData});
+        this.setData({
+          carts:cartData,
+          selectAll: cartData.length<=0?false:selectAll
+        });
         this.flushAmount();
       }
       
@@ -80,6 +90,11 @@ Page({
    */
   selectAllGoods:function(){
     let carts = this.data.carts;
+
+    if(carts.length <= 0){
+      return false;
+    }
+
     let selectAll = this.data.selectAll;
     let cartData = carts.map(item => {
       if(selectAll==true){

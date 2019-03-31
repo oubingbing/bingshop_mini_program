@@ -6,15 +6,22 @@ Page({
   data: {
     sku:[],
     amount:0,
-    orderNumber:''
+    orderId:'',
   },
   onLoad: function (options) {
     this.getSku();
   },
 
+  onShow:function(){
+    let sku = wx.getStorageSync('order_skus');
+    if (sku == '') {
+      wx.navigateBack({ delta: 2 });
+      return false;
+    }
+  },
+
   getSku:function(){
     let sku = wx.getStorageSync('order_skus');
-    console.log(sku);
     if (sku == '') {
       wx.showToast({
         title: '获取商品错误',
@@ -37,19 +44,12 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
    * 提交订单
    */
   submitOrder: function () {
     let addressId   = 1;
     let skuData     = [];
-    let orderNumber = this.data.orderNumber;
+    let orderId = this.data.orderId;
 
     this.data.sku.map(item => {
       skuData.push({ sku_id: item.sku_id, purchase_num: item.purchase_num })
@@ -66,14 +66,15 @@ Page({
     http.post(`/order`, {
       address_id:addressId,
       sku:skuData,
-      order_number: orderNumber
+      order_id: orderId
     }, res => {
       wx.hideLoading();
       let resData = res.data;
       if (resData.code == 0) {
-        let orderNumber = resData.data.order_number;
+        app.globalData.flushCart = true;
+        let orderId = resData.data.id;
         let config = resData.data.config;
-        this.setData({ orderNumber:orderNumber});
+        this.setData({ orderId: orderId});
         this.payment(config);
       }else{
         wx.showToast({
@@ -84,6 +85,10 @@ Page({
 
     })
   },
+
+  /**
+   * 调起微信支付
+   */
   payment:function(config){
     wx.requestPayment(
       {
@@ -92,15 +97,18 @@ Page({
         'package': config.package,
         'signType': config.signType,
         'paySign': config.paySign,
-        'success': function (res) {
-          //支付成功
+        'success': res=> {
+          let id = this.data.orderId;
+          wx.removeStorageSync('order_skus');
+          wx.navigateTo({
+            url: `/pages/order/detail/detail?id=${id}`
+          })
         },
         'fail': function (res) {
           //支付失败
         },
-        'complete': function (res) {
-          console.log("c");
-          console.log(res);
+        'complete': res=> {
+          console.log("支付完成");
         }
       })
   }

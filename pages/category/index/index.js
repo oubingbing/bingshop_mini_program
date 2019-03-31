@@ -1,5 +1,6 @@
 const http = require("./../../../utils/http.js");
-const app = getApp()
+const util = require("./../../../utils/util.js"); 
+const app  = getApp()
 
 Page({
   data: {
@@ -34,6 +35,7 @@ Page({
     //获取分类商品
     http.get(`/category/${id}/goods`, {}, res => {
       let resData = res.data;
+      
       this.setData({
         goods: resData.data
       })
@@ -59,9 +61,18 @@ Page({
         categoryList.push(item);
       })
 
+      let goods = resData.data.goods.map(item=>{
+        item.sku = item.sku.map(sku => {
+          sku.price = util.floar(sku.price);
+          sku.chalk_line_price = util.floar(sku.chalk_line_price);
+          return sku;
+        })
+        return item;
+      })
+
       this.setData({
         categories:categoryList,
-        goods: resData.data.goods
+        goods: goods
       })
     });
   },

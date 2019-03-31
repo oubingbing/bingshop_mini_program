@@ -46,8 +46,8 @@
                 </view>
                 <view class='price-info'>
                   <view class='price'>
-                    <view class='chalk-line-price'>￥{{item.sku[0].chalk_line_price}}</view>
-                    <view class='normal-price'>￥{{item.sku[0].vip_price}}</view>
+                    <view class='chalk-line-price' wx:if="{{item.sku[0].chalk_line_price}}">￥{{item.sku[0].chalk_line_price}}</view>
+                    <view class='normal-price'>￥{{item.sku[0].price}}</view>
                   </view>
                   <view class='cart'>
                     <image src='/images/cart-logo.png'></image>

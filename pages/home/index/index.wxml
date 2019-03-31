@@ -50,7 +50,7 @@
             <view class='price-container'>
               <view class='price'>
                 <view class='sale-price'>￥{{item.sku[0].price}}</view>
-                <view class='chalk_line_price'>{{item.sku[0].chalk_line_price}}</view>
+                <view class='chalk_line_price' wx:if="{{item.sku[0].chalk_line_price>0}}">{{item.sku[0].chalk_line_price}}</view>
               </view>
               <view class='cart-icon'>
                 <image src='/images/cart-logo.png'></image>

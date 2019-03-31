@@ -5,10 +5,11 @@ const app = getApp()
 Page({
   data: {
     orderId: '',
-    order:''
+    order:'',
   },
 
   onLoad: function (options) {
+    this.setData({ operateType:options.type})
     wx.showLoading({
       title: '加载中',
     })

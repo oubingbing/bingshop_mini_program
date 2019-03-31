@@ -61,6 +61,12 @@
         </view>
       </view>
 
+      <view class='empty-cart' wx:if="{{carts.length<=0}}">
+        <view class='empty'>
+          <image src='/images/null-cart.png'></image>
+        </view>
+      </view>
+
     </view>
   </view>
 </view>

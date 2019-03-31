@@ -1,5 +1,6 @@
 const http = require("./../../../utils/http.js");
 const cart = require("./../../../utils/cart.js");
+const util = require("./../../../utils/util.js");
 const app = getApp();
 
 const images = [
@@ -54,6 +55,11 @@ Page({
         if (goods){
           let goodsList = this.data.goodsList;
           goods.map(item => {
+            item.sku = item.sku.map(sku=>{
+              sku.price = util.floar(sku.price);
+              sku.chalk_line_price = util.floar(sku.chalk_line_price);
+              return sku;
+            })
             goodsList.push(item);
           })
           this.setData({

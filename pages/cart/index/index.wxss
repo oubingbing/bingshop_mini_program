@@ -204,3 +204,28 @@ page{
   justify-content: center;
   color: white;
 }
+
+/** 空购物车样式 **/
+.empty-cart{
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  z-index: 100;
+  }
+
+.empty{
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty image{
+  width: 200rpx;
+  height: 200rpx;
+}
