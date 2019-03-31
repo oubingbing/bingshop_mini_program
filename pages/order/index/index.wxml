@@ -26,11 +26,15 @@
     </view>
 
     <view class='order-body'>
-      <view class='order-item' wx:for="{{orders}}" wx:key="{{item.id}}">
+      <view class='order-item' 
+            wx:for="{{orders}}" 
+            wx:key="{{item.id}}"
+            data-id='{{item.id}}'
+            catchtap='openDetail'>
         <view class='order'>
           <view class='order-header'>
             <view>订单编号：{{item.order_number}}</view>
-            <view class='status'>待发货</view>
+            <view class='status'>{{item.status_string}}</view>
           </view>
           <view class='goods-container'>
             <view class='goods-content'>

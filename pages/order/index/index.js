@@ -3,7 +3,6 @@ const util = require("./../../../utils/util.js");
 const app = getApp()
 
 Page({
-
   data: {
     pageSize: 5,
     pageNumber: 1,
@@ -13,6 +12,7 @@ Page({
     showGeMoreLoadin: false,
     notDataTips: false,
   },
+
   onLoad: function (options) {
     let selectType = options.select_type;
     this.setData({ select: selectType ? selectType:0})
@@ -50,6 +50,12 @@ Page({
       if (resData.code == 0) {
         let orderArray = this.data.orders;
         resData.data.page_data.map(item=>{
+          item.actual_amount = util.floar(item.actual_amount);
+          item.order_items = item.order_items.map(sub=>{
+            sub.sku_snapshot.price = util.floar(sub.sku_snapshot.price);
+            return sub;
+          })
+          item.status_string = util.formatStatus(item.status);
           orderArray.push(item);
         })
 
@@ -61,6 +67,13 @@ Page({
         });
       }
     });
+  },
+
+  openDetail:function(e){
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `/pages/order/detail/detail?id=${id}`
+    })
   },
 
   /**

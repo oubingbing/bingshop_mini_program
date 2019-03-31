@@ -6,7 +6,7 @@
         <image src='/images/wait-send.png'></image>
       </view>
       <view class='status-rignt'>
-        <view class='status-info'>待发货</view>
+        <view class='status-info'>{{order.status_string}}</view>
         <view class='status-decribe'>等待商家发货</view>
       </view>
     </view>
@@ -18,7 +18,7 @@
         </view>
         <view class='expres-down'>
           <view class='company-name'>物流单号：</view>
-          <view>1234567893333</view>
+          <view>{{order.order_number}}</view>
         </view>
       </view>
       <view class='express-detail'>
@@ -51,23 +51,23 @@
   <view class='goods-container'>
     <view class='goods-content'>
       <view class='goods-item' 
-            wx:for="{{sku}}" 
-            wx:key="{{item.sku_id}}">
+            wx:for="{{order.order_items}}" 
+            wx:key="{{item.id}}">
         <view class='goods-left'>
           <image mode='aspectFill' 
-                 src="{{item.sku.goods.images_attachments.length>0?item.sku.goods.images_attachments[0]:'/images/not-image.png'}}"></image>
+                 src="{{item.sku_snapshot.goods.images_attachments.length>0?item.sku_snapshot.goods.images_attachments[0]:'/images/not-image.png'}}"></image>
         </view>
         <view class='goods-middle'>
-            <view class='title'>{{item.sku.goods.name}}</view>
-            <view class='sku-data' wx:if="{{item.sku.standard_values.length>0}}">
-              <view wx:for="{{item.sku.standard_values}}"  
+            <view class='title'>{{item.sku_snapshot.goods.name}}</view>
+            <view class='sku-data' wx:if="{{item.sku_snapshot.standard_values.length>0}}">
+              <view wx:for="{{item.sku_snapshot.standard_values}}"  
                     wx:for-item="sub" 
                     wx:key="{{sub.id}}">{{sub.value}}</view>
             </view>
-            <view class='price'>￥{{item.sku.price}}</view>
+            <view class='price'>￥{{item.sku_snapshot.price}}</view>
         </view>
         <view class='goods-right'>
-          <view>x{{item.purchase_num}}</view>
+          <view>x{{item.quantity}}</view>
         </view>
       </view>
     </view>
@@ -101,7 +101,7 @@
       <view class='order-content'>
         <view class='order-item'>
           <view class='item-left'>商品金额</view>
-          <view class='item-right'>￥{{amount}}</view>
+          <view class='item-right'>￥{{order.amount}}</view>
         </view>
         <view class='order-item express-cost'>
           <view class='item-left'>运费</view>
@@ -113,7 +113,7 @@
         </view>
         <view class='sum-money'>
           <view>合计：</view>
-          <view class='total-amount'>￥{{amount}}</view>
+          <view class='total-amount'>￥{{order.actual_amount}}</view>
         </view>
       </view>
     </view>

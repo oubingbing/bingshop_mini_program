@@ -4,42 +4,40 @@ const app = getApp()
 
 Page({
   data: {
-    sku: [],
-    amount: 0,
-    orderNumber: ''
+    orderId: '',
+    order:''
   },
+
   onLoad: function (options) {
-    this.getSku();
-  },
-
-  getSku: function () {
-    let sku = wx.getStorageSync('order_skus');
-    console.log(sku);
-    if (sku == '') {
-      wx.showToast({
-        title: '获取商品错误',
-        icon: 'none'
-      })
-      return false;
-    }
-
-    let skuData = JSON.parse(sku);
-    let amount = this.data.amount;
-    skuData.map(item => {
-      amount += (item.purchase_num * item.sku.price)
-      return item;
+    wx.showLoading({
+      title: '加载中',
     })
-
     this.setData({
-      sku: skuData,
-      amount: util.floar(amount)
+      orderId: options.id
     })
+    this.getOrder();
   },
 
   /**
-   * 生命周期函数--监听页面显示
+   * 获取订单详情
    */
-  onShow: function () {
-
+  getOrder:function(){
+    http.get(`/order/${this.data.orderId}`, {}, res => {
+      wx.hideLoading();
+      let resData = res.data;
+      if (resData.code == 0) {
+        let order = resData.data;
+        order.actual_amount = util.floar(order.actual_amount);
+        order.amount = util.floar(order.amount);
+        order.order_items = order.order_items.map(sub => {
+          sub.sku_snapshot.price = util.floar(sub.sku_snapshot.price);
+          return sub;
+        })
+        order.status_string = util.formatStatus(order.status);
+        this.setData({
+          order: order
+        })
+      }
+    });
   }
 })
