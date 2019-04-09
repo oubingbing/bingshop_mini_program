@@ -1,0 +1,105 @@
+.address-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.address-content{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-item{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border-bottom-style:solid;
+  border-width:1rpx;
+  border-color: #F2F2F2;
+  padding: 30rpx 0rpx;
+}
+
+.item-left{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-left .name-phone{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.username{
+  margin-right: 50rpx;
+  color: #FF6347;
+}
+
+.main-address{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+}
+
+.detail-address{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+}
+
+.item{
+  padding: 10rpx 0rpx;
+}
+
+.item-right{
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.item-right image{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+
+/**add address**/
+.post-container{
+  position:fixed;
+  right:30rpx;
+  bottom:30rpx;
+  z-index:100;
+  width: 120prx;
+  height: 120prx;
+}
+
+.post-container .wall{
+  position: absolute;
+  z-index: 105;
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 45rpx;
+  background: white;
+  right: 10rpx;
+  bottom: 30rpx;
+}
+
+.post image{
+  width: 100rpx;
+  height: 100rpx;
+  position: relative;
+  z-index: 110;
+}

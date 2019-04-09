@@ -1,0 +1,47 @@
+<view class="address-container">
+  <view class='address-content'>
+    <view class='content'>
+
+      <view class='content-item'>
+        <view class='address-item'>
+          <view>收货人：</view>
+          <view><input /></view>
+        </view>
+      </view>
+
+      <view class='content-item'>
+        <view class='address-item'>
+          <view>手机号码：</view>
+          <view><input /></view>
+        </view>
+      </view>
+
+      <view class='content-item address'>
+        <view class='address-item'>
+          <view>所在地区：</view>
+          <view><input /></view>
+        </view>
+      </view>
+
+      <view class='content-item'>
+        <view class='address-item'>
+          <view>详细地址：</view>
+          <view><input /></view>
+        </view>
+      </view>
+
+      <view class='content-item set-default'>
+        <view class='address-item default-address'>
+          <view>设为默认地址</view>
+          <switch bindchange="switchChange"/>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+  <view class='button-container'>
+    <button > 保存 </button>
+  </view>
+
+</view>

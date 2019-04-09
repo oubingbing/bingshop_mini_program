@@ -7,7 +7,9 @@
     "pages/cart/confirmation_order/confirmation_order",
     "pages/personal/index/index",
     "pages/order/index/index",
-    "pages/order/detail/detail"
+    "pages/order/detail/detail",
+    "pages/address/index/index",
+    "pages/address/create/create"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -87,5 +87,12 @@ Page({
     wx.navigateTo({
       url: '/pages/order/index/index?select_type=' + type
     })
+  },
+
+  openTab:function(e){
+    let url = e.currentTarget.dataset.url;
+    wx.navigateTo({
+      url: url
+    })
   }
 })

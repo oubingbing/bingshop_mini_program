@@ -1,0 +1,43 @@
+<view class="address-container">
+  <view class='address-content'>
+    <view class='content'>
+
+      <view class='content-item'>
+        <view class='item-left'>
+          <view class='name-phone item'>
+            <view class='username'>区志彬</view>
+            <view class='phone'>13425144866</view>
+          </view>
+          <view class='main-address item'>广东深圳南山区</view>
+          <view class='detail-address'>南头街道丁头村大板桥巷129号402室</view>
+        </view>
+        <view class='item-right'>
+          <image src='/images/right.png'></image>
+        </view>
+      </view>
+
+      <view class='content-item'>
+        <view class='item-left'>
+          <view class='name-phone item'>
+            <view class='username'>区志彬</view>
+            <view class='phone'>13425144866</view>
+          </view>
+          <view class='main-address item'>广东深圳南山区</view>
+          <view class='detail-address'>南头街道丁头村大板桥巷129号402室</view>
+        </view>
+        <view class='item-right'>
+          <image src='/images/right.png'></image>
+        </view>
+      </view>
+    
+    </view>
+  </view>
+
+  <view class='post-container'>
+    <view class='wall'></view>
+    <view class='post'>
+      <image src='/images/add-address.png' bindtap='post'></image>
+    </view>
+  </view>
+
+</view>
