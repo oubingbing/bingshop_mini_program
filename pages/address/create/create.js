@@ -50,7 +50,7 @@ Page({
           city: resData.data.city,
           district: resData.data.district,
           street: resData.data.street,
-          addressDetail: resData.data.detail_address,
+          detailAddress: resData.data.detail_address,
           longitude: resData.data.longitude,
           latitude: resData.data.latitude,
           defaultSetting: resData.data.type

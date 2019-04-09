@@ -27,10 +27,9 @@
         <view class='address-item'>
           <textarea 
             maxlength="1024"
-            value='{{detailAddress}}'
             class='textarea-content'
             placeholder="详细地址"   
-            value='{{addressDetail}}' 
+            value='{{detailAddress}}' 
             bindinput="getDetailAddress"/>
         </view>
       </view>
