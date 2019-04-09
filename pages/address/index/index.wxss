@@ -37,6 +37,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .username{
@@ -102,4 +103,9 @@
   height: 100rpx;
   position: relative;
   z-index: 110;
+}
+
+.default-address{
+  font-size: 30rpx;
+  color: #20B2AA;
 }

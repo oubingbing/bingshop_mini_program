@@ -5,35 +5,40 @@
       <view class='content-item'>
         <view class='address-item'>
           <view>收货人：</view>
-          <view><input /></view>
+          <view><input bindinput='getName' value='{{receiver}}'/></view>
         </view>
       </view>
 
       <view class='content-item'>
         <view class='address-item'>
           <view>手机号码：</view>
-          <view><input /></view>
+          <view><input bindinput='getPhone' value='{{phone}}'/></view>
         </view>
       </view>
 
-      <view class='content-item address'>
+      <view class='content-item address' bindtap='getRegion'>
         <view class='address-item'>
           <view>所在地区：</view>
-          <view><input /></view>
+          <view>{{province+' '+city+' '+district}}</view>
         </view>
       </view>
 
       <view class='content-item'>
         <view class='address-item'>
-          <view>详细地址：</view>
-          <view><input /></view>
+          <textarea 
+            maxlength="1024"
+            value='{{detailAddress}}'
+            class='textarea-content'
+            placeholder="详细地址"   
+            value='{{addressDetail}}' 
+            bindinput="getDetailAddress"/>
         </view>
       </view>
 
       <view class='content-item set-default'>
         <view class='address-item default-address'>
           <view>设为默认地址</view>
-          <switch bindchange="switchChange"/>
+          <switch checked='{{defaultSetting}}' bindchange="switchChange"/>
         </view>
       </view>
 
@@ -41,7 +46,7 @@
   </view>
 
   <view class='button-container'>
-    <button > 保存 </button>
+    <button bindtap='submitAddress'> 保存 </button>
   </view>
 
 </view>

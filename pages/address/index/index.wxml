@@ -2,28 +2,20 @@
   <view class='address-content'>
     <view class='content'>
 
-      <view class='content-item'>
+      <view class='content-item' 
+            wx:for="{{address}}" 
+            wx:key="{{item.id}}"
+            data-id='{{item.id}}'
+            bindtap='openAddress'
+            bindlongpress='removeAddress'>
         <view class='item-left'>
           <view class='name-phone item'>
-            <view class='username'>区志彬</view>
-            <view class='phone'>13425144866</view>
+            <view class='username'>{{item.receiver}}</view>
+            <view class='phone'>{{item.phone}}</view>
+            <view class='default-address' wx:if="{{item.type==1}}">（默认）</view>
           </view>
-          <view class='main-address item'>广东深圳南山区</view>
-          <view class='detail-address'>南头街道丁头村大板桥巷129号402室</view>
-        </view>
-        <view class='item-right'>
-          <image src='/images/right.png'></image>
-        </view>
-      </view>
-
-      <view class='content-item'>
-        <view class='item-left'>
-          <view class='name-phone item'>
-            <view class='username'>区志彬</view>
-            <view class='phone'>13425144866</view>
-          </view>
-          <view class='main-address item'>广东深圳南山区</view>
-          <view class='detail-address'>南头街道丁头村大板桥巷129号402室</view>
+          <view class='main-address item'>{{item.province+' '+item.city+' '+item.district}}</view>
+          <view class='detail-address'>{{item.detail_address}}</view>
         </view>
         <view class='item-right'>
           <image src='/images/right.png'></image>
@@ -36,7 +28,7 @@
   <view class='post-container'>
     <view class='wall'></view>
     <view class='post'>
-      <image src='/images/add-address.png' bindtap='post'></image>
+      <image src='/images/add-address.png' bindtap='createPost'></image>
     </view>
   </view>
 
