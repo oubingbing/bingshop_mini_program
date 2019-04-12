@@ -9,13 +9,18 @@ Page({
   },
 
   onLoad: function (options) {
-    this.setData({ operateType:options.type})
+    if (options.type){
+      this.setData({ operateType: options.type })
+    }
+
     wx.showLoading({
       title: '加载中',
     })
+
     this.setData({
       orderId: options.id
     })
+    
     this.getOrder();
   },
 

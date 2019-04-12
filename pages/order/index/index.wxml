@@ -66,7 +66,11 @@
             <view class='amount-content'>￥{{item.actual_amount}}</view>
           </view>
           <view class='order-footer'>
-            <view class='footer-item'>提醒发货</view>
+            <view class='footer-item confirm-receipt' 
+                  wx:if="{{item.status == 5}}"
+                  data-id='{{item.id}}'
+                  catchtap='confirmReceipt'>确认收货</view>
+            <view class='footer-item' wx:if="{{item.status == 2 || item.status == 4}}">提醒发货</view>
             <view class='footer-item'>再来一单</view>
           </view>
         </view>

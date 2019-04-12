@@ -23,14 +23,26 @@
               interval="3000"
               circular="true"
               duration="1500"
+              previous-margin="50rpx"
+              next-margin="50rpx"
+              easing-function="easeInOutCubic"
+              bindchange="onSwiperChange"
               class='image-container'>
           <block wx:for="{{attachments}}" wx:key="{{item}}">
             <swiper-item class="image-item">
-              <image class='goods-image' src="{{item}}" mode='aspectFill' />
+              <image class="{{item.show==true?'current-image':'goods-image'}}" 
+                     src="{{item.url}}"
+                     mode='aspectFill' />
             </swiper-item>
           </block>
       </swiper>
     </view>
+
+    <!--<view class='coupon-receive'>
+      <view class='receive'>
+        <image src='/images'></image>
+      </view>
+    </view>-->
 
     <!-- 商品列表 -->
     <view class='goods-container'>
@@ -75,6 +87,12 @@
               class='auth-button'>
         <view>授权登录</view>
       </button>
+    </view>
+  </view>
+
+  <view class='coupon-window'>
+    <view class='coupon-image'>
+      <image ></image>
     </view>
   </view>
 

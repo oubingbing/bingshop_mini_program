@@ -187,3 +187,7 @@ page{
   margin-left: 20rpx;
   border-radius: 
 }
+
+.confirm-receipt{
+  color: #66CDAA;
+}

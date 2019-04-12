@@ -24,6 +24,32 @@ Page({
   },
 
   /**
+   * 确认收货
+   */
+  confirmReceipt:function(e){
+    let id = e.currentTarget.dataset.id;
+    http.put(`/order/receipt`, {order_id:id}, res => {
+      
+      let resData = res.data;
+      if (resData.code == 0) {
+        let orderList = this.data.orders;
+        orderList.map(item=>{
+          if(item.id == id){
+            console.log(resData);
+            item.status = resData.data;
+            item.status_string = util.formatStatus(parseInt(item.status));
+            console.log(item.status_string);
+          }
+          return item;
+        })
+        this.setData({
+          orders:orderList
+        })
+      }
+    });
+  },
+
+  /**
    * 切换tab
    */
   selectTab:function(e){

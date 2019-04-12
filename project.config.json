@@ -9,7 +9,7 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.0",
+	"libVersion": "2.6.5",
 	"appid": "wx6e521fc169ce786d",
 	"projectname": "bingshop",
 	"condition": {

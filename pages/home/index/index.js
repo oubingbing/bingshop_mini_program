@@ -4,8 +4,10 @@ const util = require("./../../../utils/util.js");
 const app = getApp();
 
 const images = [
-  "http://article.qiuhuiyi.cn/hui_yi_15532398760009200",
-  "http://article.qiuhuiyi.cn/hui_yi_15532398790002956"
+  { show: true, url: "http://article.qiuhuiyi.cn/hui_yi_15532398760009200"},
+  { show: false, url: "http://article.qiuhuiyi.cn/hui_yi_15532398790002956"},
+  { show: false, url: "http://article.qiuhuiyi.cn/hui_yi_15542637220008929"},
+  { show: false, url: "http://article.qiuhuiyi.cn/hui_yi_15542633790005932"}
 ]
 
 Page({
@@ -41,6 +43,19 @@ Page({
 
   onReady(){
     cart.setCartBadge();
+  },
+
+  onSwiperChange:function(e){
+    let current = e.detail.current;
+    let images = this.data.attachments;
+    images.map((item,index)=>{
+      if((index) == current){
+        item.show = true;
+      }else{
+        item.show = false;
+      }
+    })
+    this.setData({attachments:images})
   },
 
   /**
